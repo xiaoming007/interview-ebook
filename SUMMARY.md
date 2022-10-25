@@ -15,5 +15,6 @@
 * [java基础](README.md)
     * [ArrayList与LinkedList](java/ArrayList与LinkedList.md)
     * [HashMap](java/HashMap相关.md)
+    * [红黑树](java/红黑树搜索算法.md)
 * [结束](end/README.md)
 
