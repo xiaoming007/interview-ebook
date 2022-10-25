@@ -57,7 +57,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../end/" />
+    <link rel="next" href="红黑树搜索算法.html" />
     
     
     <link rel="prev" href="ArrayList与LinkedList.html" />
@@ -297,6 +297,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.3.3" data-path="红黑树搜索算法.html">
+            
+                <a href="红黑树搜索算法.html">
+            
+                    
+                    红黑树
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -361,7 +374,71 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="hashmap">HashMap</h1>
-<h4 id="1&#x5E95;&#x5C42;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF08;&#x7EA2;&#x9ED1;&#x6811;--list&#xFF09;">1.&#x5E95;&#x5C42;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF08;&#x7EA2;&#x9ED1;&#x6811; + list&#xFF09;</h4>
+<h4 id="1put&#xFF08;&#x7EA2;&#x9ED1;&#x6811;--&#x94FE;&#x8868;--&#x6570;&#x7EC4;&#xFF09;">1.put()&#xFF08;&#x7EA2;&#x9ED1;&#x6811; + &#x94FE;&#x8868; + &#x6570;&#x7EC4;&#xFF09;</h4>
+<pre><code class="lang-bash">  public V put(K key, V value) {
+        <span class="hljs-built_in">return</span> putVal(<span class="hljs-built_in">hash</span>(key), key, value, <span class="hljs-literal">false</span>, <span class="hljs-literal">true</span>);
+    }
+
+   final V putVal(int <span class="hljs-built_in">hash</span>, K key, V value, boolean onlyIfAbsent,
+                   boolean evict) {
+        Node&lt;K,V&gt;[] tab; Node&lt;K,V&gt; p; int n, i;
+        <span class="hljs-keyword">if</span> ((tab = table) == null || (n = tab.length) == 0)
+             //&#x5982;&#x679C;table&#x5C1A;&#x672A;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x5219;&#x6B64;&#x5904;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#x6570;&#x7EC4;&#xFF0C;&#x5E76;&#x8D4B;&#x503C;&#x521D;&#x59CB;&#x5BB9;&#x91CF;&#xFF0C;&#x91CD;&#x65B0;&#x8BA1;&#x7B97;&#x9608;&#x503C;
+            n = (tab = resize()).length;
+        <span class="hljs-keyword">if</span> ((p = tab[i = (n - 1) &amp; <span class="hljs-built_in">hash</span>]) == null)
+            //&#x901A;&#x8FC7;<span class="hljs-built_in">hash</span>&#x627E;&#x5230;&#x4E0B;&#x6807;&#xFF0C;&#x5982;&#x679C;<span class="hljs-built_in">hash</span>&#x503C;&#x6307;&#x5B9A;&#x7684;&#x4F4D;&#x7F6E;&#x6570;&#x636E;&#x4E3A;&#x7A7A;&#xFF0C;&#x5219;&#x76F4;&#x63A5;&#x5C06;&#x6570;&#x636E;&#x5B58;&#x653E;&#x8FDB;&#x53BB;
+            tab[i] = newNode(<span class="hljs-built_in">hash</span>, key, value, null);
+        <span class="hljs-keyword">else</span> {
+            //&#x5982;&#x679C;&#x901A;&#x8FC7;<span class="hljs-built_in">hash</span>&#x627E;&#x5230;&#x7684;&#x4F4D;&#x7F6E;&#x6709;&#x6570;&#x636E;&#xFF0C;&#x53D1;&#x751F;&#x78B0;&#x649E;
+            Node&lt;K,V&gt; e; K k;
+            <span class="hljs-keyword">if</span> (p.hash == <span class="hljs-built_in">hash</span> &amp;&amp;
+                ((k = p.key) == key || (key != null &amp;&amp; key.equals(k))))
+                //&#x5982;&#x679C;&#x9700;&#x8981;&#x63D2;&#x5165;&#x7684;key&#x548C;&#x5F53;&#x524D;<span class="hljs-built_in">hash</span>&#x503C;&#x6307;&#x5B9A;&#x4E0B;&#x6807;&#x7684;key&#x4E00;&#x6837;&#xFF0C;&#x5148;&#x5C06;e&#x6570;&#x7EC4;&#x4E2D;&#x5DF2;&#x6709;&#x7684;&#x6570;&#x636E;
+                e = p;
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (p instanceof TreeNode)
+                //&#x5982;&#x679C;&#x6B64;&#x65F6;&#x6876;&#x4E2D;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x4E3A; treeNode&#xFF0C;&#x4F7F;&#x7528;&#x7EA2;&#x9ED1;&#x6811;&#x8FDB;&#x884C;&#x63D2;&#x5165;
+                e = ((TreeNode&lt;K,V&gt;)p).putTreeVal(this, tab, <span class="hljs-built_in">hash</span>, key, value);
+            <span class="hljs-keyword">else</span> {
+                //&#x6B64;&#x65F6;&#x6876;&#x4E2D;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x4E3A;&#x94FE;&#x8868;
+                // &#x8FDB;&#x884C;&#x5FAA;&#x73AF;
+                <span class="hljs-keyword">for</span> (int binCount = 0; ; ++binCount) {
+                    <span class="hljs-keyword">if</span> ((e = p.next) == null) {
+                        //&#x5982;&#x679C;&#x94FE;&#x8868;&#x4E2D;&#x6CA1;&#x6709;&#x6700;&#x65B0;&#x63D2;&#x5165;&#x7684;&#x8282;&#x70B9;&#xFF0C;&#x5C06;&#x65B0;&#x653E;&#x5165;&#x7684;&#x6570;&#x636E;&#x653E;&#x5230;&#x94FE;&#x8868;&#x7684;&#x672B;&#x5C3E;
+                        p.next = newNode(<span class="hljs-built_in">hash</span>, key, value, null);
+
+                        //&#x5982;&#x679C;&#x94FE;&#x8868;&#x8FC7;&#x957F;&#xFF0C;&#x8FBE;&#x5230;&#x6811;&#x5316;&#x9608;&#x503C;&#xFF0C;&#x5C06;&#x94FE;&#x8868;&#x8F6C;&#x5316;&#x6210;&#x7EA2;&#x9ED1;&#x6811;
+                        <span class="hljs-keyword">if</span> (binCount &gt;= TREEIFY_THRESHOLD - 1) // -1 <span class="hljs-keyword">for</span> 1st
+                            treeifyB<span class="hljs-keyword">in</span>(tab, <span class="hljs-built_in">hash</span>);
+                        <span class="hljs-built_in">break</span>;
+                    }
+                    //&#x5982;&#x679C;&#x94FE;&#x8868;&#x4E2D;&#x6709;&#x65B0;&#x63D2;&#x5165;&#x7684;&#x8282;&#x70B9;&#x4F4D;&#x7F6E;&#x6570;&#x636E;&#x4E0D;&#x4E3A;&#x7A7A;&#xFF0C;&#x5219;&#x6B64;&#x65F6;e &#x8D4B;&#x503C;&#x4E3A;&#x8282;&#x70B9;&#x7684;&#x503C;&#xFF0C;&#x8DF3;&#x51FA;&#x5FAA;&#x73AF;
+                    <span class="hljs-keyword">if</span> (e.hash == <span class="hljs-built_in">hash</span> &amp;&amp;
+                        ((k = e.key) == key || (key != null &amp;&amp; key.equals(k))))
+                        <span class="hljs-built_in">break</span>;
+                    p = e;
+                }
+            }
+
+            //&#x7ECF;&#x8FC7;&#x4E0A;&#x9762;&#x7684;&#x5FAA;&#x73AF;&#x540E;&#xFF0C;&#x5982;&#x679C;e&#x4E0D;&#x4E3A;&#x7A7A;&#xFF0C;&#x5219;&#x8BF4;&#x660E;&#x4E0A;&#x9762;&#x63D2;&#x5165;&#x7684;&#x503C;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x4E8E;&#x5F53;&#x524D;&#x7684;<span class="hljs-built_in">hash</span>Map&#x4E2D;&#xFF0C;&#x90A3;&#x4E48;&#x66F4;&#x65B0;&#x6307;&#x5B9A;&#x4F4D;&#x7F6E;&#x7684;&#x952E;&#x503C;&#x5BF9;
+            <span class="hljs-keyword">if</span> (e != null) { // existing mapping <span class="hljs-keyword">for</span> key
+                V oldValue = e.value;
+                <span class="hljs-keyword">if</span> (!onlyIfAbsent || oldValue == null)
+                    e.value = value;
+                afterNodeAccess(e);
+                <span class="hljs-built_in">return</span> oldValue;
+            }
+        }
+        ++modCount;
+        //&#x5982;&#x679C;&#x6B64;&#x65F6;<span class="hljs-built_in">hash</span>Map size&#x5927;&#x4E8E;&#x9608;&#x503C;&#xFF0C;&#x5219;&#x8FDB;&#x884C;&#x6269;&#x5BB9;
+        <span class="hljs-keyword">if</span> (++size &gt; threshold)
+            resize();
+        afterNodeInsertion(evict);
+        <span class="hljs-built_in">return</span> null;
+    }
+</code></pre>
+<ul>
+<li>&#xFF08;1&#xFF09;&#x6811;&#x5316;&#x6761;&#x4EF6;&#xFF1A;table&#x5BB9;&#x91CF;&#x5927;&#x4E8E;&#x6700;&#x5C0F;&#x6811;&#x5316;&#x5BB9;&#x91CF;&#xFF0C;&#x5E76;&#x4E14;&#x94FE;&#x8868;&#x957F;&#x5EA6;&#x5927;&#x4E8E;&#x6811;&#x5316;&#x9608;&#x503C;&#x3002;</li>
+</ul>
 <h4 id="2hashcode&#x7684;&#x751F;&#x6210;">2.hashCode&#x7684;&#x751F;&#x6210;</h4>
 <h4 id="3hash-&#x78B0;&#x649E;&#x95EE;&#x9898;">3.hash &#x78B0;&#x649E;&#x95EE;&#x9898;</h4>
 <h4 id="4&#x6269;&#x5BB9;&#x95EE;&#x9898;">4.&#x6269;&#x5BB9;&#x95EE;&#x9898;</h4>
@@ -373,7 +450,7 @@
 <h4 id="8&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x95EE;&#x9898;&#xFF08;&#x7EBF;&#x7A0B;&#x4E0D;&#x5B89;&#x5168;&#x7684;&#xFF09;">8.&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x95EE;&#x9898;&#xFF08;&#x7EBF;&#x7A0B;&#x4E0D;&#x5B89;&#x5168;&#x7684;&#xFF09;</h4>
 <h4 id="9hashtable&#x662F;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#xFF08;&#x51FD;&#x6570;&#x9501;-synchronized&#xFF09;">9.hashTable&#x662F;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#xFF08;&#x51FD;&#x6570;&#x9501; synchronized&#xFF09;</h4>
 <h4 id="10concurrenthashmap&#x6548;&#x7387;&#x6BD4;&#x8F83;&#x9AD8;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;">10.ConcurrentHashMap&#x6548;&#x7387;&#x6BD4;&#x8F83;&#x9AD8;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;</h4>
-<h4 id="11sparsearray&#x6E90;&#x7801;">11.SparseArray&#x6E90;&#x7801;</h4>
+<h3 id="sparsearray&#x6E90;&#x7801;">SparseArray&#x6E90;&#x7801;</h3>
 <h6 id="1&#x4E8C;&#x5206;&#x67E5;&#x627E;&#x5176;key&#x8FD9;&#x91CC;key&#x5FC5;&#x987B;&#x662F;int&#x7684;">(1).&#x4E8C;&#x5206;&#x67E5;&#x627E;&#x5176;key,&#x8FD9;&#x91CC;key&#x5FC5;&#x987B;&#x662F;int&#x7684;</h6>
 <pre><code class="lang-bash">// This is Arrays.binarySearch(), but doesn<span class="hljs-string">&apos;t do any argument validation.
     static int binarySearch(int[] array, int size, int value) {
@@ -427,7 +504,7 @@
                 </a>
                 
                 
-                <a href="../end/" class="navigation navigation-next " aria-label="Next page: 结束">
+                <a href="红黑树搜索算法.html" class="navigation navigation-next " aria-label="Next page: 红黑树">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -438,7 +515,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"HashMap","level":"1.3.2","depth":2,"next":{"title":"结束","level":"1.4","depth":1,"path":"end/README.md","ref":"end/README.md","articles":[]},"previous":{"title":"ArrayList与LinkedList","level":"1.3.1","depth":2,"path":"java/ArrayList与LinkedList.md","ref":"java/ArrayList与LinkedList.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"java/HashMap相关.md","mtime":"2022-10-24T08:50:29.137Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-10-25T03:50:11.812Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"HashMap","level":"1.3.2","depth":2,"next":{"title":"红黑树","level":"1.3.3","depth":2,"path":"java/红黑树搜索算法.md","ref":"java/红黑树搜索算法.md","articles":[]},"previous":{"title":"ArrayList与LinkedList","level":"1.3.1","depth":2,"path":"java/ArrayList与LinkedList.md","ref":"java/ArrayList与LinkedList.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"java/HashMap相关.md","mtime":"2022-10-25T08:52:13.246Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-10-25T10:25:30.713Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
