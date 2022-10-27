@@ -425,12 +425,12 @@
                                 <h1 id="&#x534F;&#x7A0B;&#x57FA;&#x7840;">&#x534F;&#x7A0B;&#x57FA;&#x7840;</h1>
 <h4 id="&#x534F;&#x7A0B;&#x76F8;&#x5173;-&#x5173;&#x952E;&#x5B57;&#x4E0E;&#x6982;&#x5FF5;">&#x534F;&#x7A0B;&#x76F8;&#x5173; &#x5173;&#x952E;&#x5B57;&#x4E0E;&#x6982;&#x5FF5;</h4>
 <ul>
-<li>GlobalScope &#x5168;&#x5C40;&#x534F;&#x7A0B;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x5728;&#x5176;&#x4E2D;&#x542F;&#x52A8;&#x7684;&#x6D3B;&#x52A8;&#x534F;&#x7A0B;&#x5E76;&#x4E0D;&#x4F1A;&#x4F7F;&#x8FDB;&#x7A0B;&#x5305;&#x6D3B;&#xFF0C;&#x5C31;&#x50CF;&#x5B88;&#x62A4;&#x7EBF;&#x7A0B;&#x3002;</li>
+<li>GlobalScope &#x5168;&#x5C40;&#x534F;&#x7A0B;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x5728;&#x5176;&#x4E2D;&#x542F;&#x52A8;&#x7684;&#x6D3B;&#x52A8;&#x534F;&#x7A0B;&#x5E76;&#x4E0D;&#x4F1A;&#x4F7F;&#x8FDB;&#x7A0B;&#x4FDD;&#x6D3B;&#xFF0C;&#x5C31;&#x50CF;&#x5B88;&#x62A4;&#x7EBF;&#x7A0B;&#x3002;</li>
 <li>CoroutineScope &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x534F;&#x7A0B;&#x4F5C;&#x7528;&#x57DF;&#x5E76;&#x4E14;&#x5728;&#x6240;&#x6709;&#x5DF2;&#x542F;&#x52A8;&#x5B50;&#x534F;&#x7A0B;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#x4E4B;&#x524D;&#x4E0D;&#x4F1A;&#x7ED3;&#x675F;&#xFF0C;&#x6302;&#x8D77;&#x51FD;&#x6570;</li>
 <li>runBlocking &#x4F5C;&#x7528;&#x4E0E;CoroutineScope &#x7C7B;&#x4F3C;&#xFF0C;&#x533A;&#x522B;&#x662F;&#x5B83;&#x662F;&#x7EBF;&#x7A0B;&#x963B;&#x585E;&#x7684;&#xFF0C;&#x5E38;&#x89C4;&#x51FD;&#x6570;</li>
 <li>launch</li>
 <li>job</li>
-<li>&#x7ED3;&#x6784;&#x5316;&#x7684;&#x5E76;&#x53D1;<h5 id="&#x53D6;&#x6D88;&#x4E0E;&#x8D85;&#x65F6;">&#x53D6;&#x6D88;&#x4E0E;&#x8D85;&#x65F6;</h5>
+<li>&#x7ED3;&#x6784;&#x5316;&#x7684;&#x5E76;&#x53D1;<h4 id="&#x53D6;&#x6D88;&#x4E0E;&#x8D85;&#x65F6;">&#x53D6;&#x6D88;&#x4E0E;&#x8D85;&#x65F6;</h4>
 </li>
 <li>&#x53D6;&#x6D88;&#x662F;&#x534F;&#x4F5C;&#x7684; &#xFF08;&#x5982;&#x679C;&#x534F;&#x7A0B;&#x6B63;&#x5728;&#x6267;&#x884C;&#x8BA1;&#x7B97;&#x4EFB;&#x52A1;&#xFF0C;&#x5E76;&#x4E14;&#x6CA1;&#x6709;&#x68C0;&#x67E5;&#x53D6;&#x6D88;&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x662F;&#x4E0D;&#x80FD;&#x88AB;&#x53D6;&#x6D88;&#x7684;&#xFF09;</li>
 <li>isActive &#x4E00;&#x4E2A;&#x6269;&#x5C55;&#x5C5E;&#x6027;&#xFF0C;&#x7528;&#x4E8E;&#x663E;&#x793A;&#x7684;&#x68C0;&#x67E5;&#x53D6;&#x6D88;&#x72B6;&#x6001;</li>
@@ -479,8 +479,37 @@ val time = measureTimeMillis {</p>
   println(&quot;The answer is ${one.await() + two.await()}&quot;)</p>
 </li>
 </ul>
-<p>}
-```</p>
+<p>}</p>
+<pre><code>- &#x4F7F;&#x7528;async&#x7684;&#x7ED3;&#x6784;&#x5316;&#x5E76;&#x53D1;&#x65F6;&#xFF0C;&#x53EA;&#x8981;&#x6709;&#x4E00;&#x4E2A;&#x534F;&#x7A0B;&#x629B;&#x51FA;&#x4E86;&#x5F02;&#x5E38;&#xFF0C;&#x6240;&#x6709;&#x5728;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x542F;&#x52A8;&#x7684;&#x534F;&#x7A0B;&#x90FD;&#x4F1A;&#x88AB;&#x53D6;&#x6D88;
+#### &#x534F;&#x7A0B;&#x4E0A;&#x4E0B;&#x6587;&#x4E0E;&#x8C03;&#x5EA6;&#x5668;
+- &#x534F;&#x7A0B;&#x4E0A;&#x4E0B;&#x6587;: &#x662F;&#x5404;&#x79CD;&#x4E0D;&#x540C;&#x5143;&#x7D20;&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x5176;&#x4E2D;&#x4E3B;&#x5143;&#x7D20;&#x662F;&#x534F;&#x7A0B;&#x4E2D;&#x7684;job&#x3002;&#x534F;&#x7A0B;&#x603B;&#x662F;&#x8FD0;&#x884C;&#x5728;&#x4E00;&#x4E9B;&#x4EE5;CoroutineContext&#x7C7B;&#x578B;&#x4E3A;&#x4EE3;&#x8868;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;
+- &#x8C03;&#x5EA6;&#x5668;: &#x534F;&#x7A0B;&#x4E0A;&#x4E0B;&#x6587;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x534F;&#x7A0B;&#x8C03;&#x5EA6;&#x5668;&#xFF0C;&#x5B83;&#x786E;&#x5B9A;&#x4E86;&#x76F8;&#x5173;&#x7684;&#x534F;&#x7A0B;&#x5728;&#x54EA;&#x4E2A;&#x7EBF;&#x7A0B;&#x6216;&#x54EA;&#x4E9B;&#x7EBF;&#x7A0B;&#x4E0A;&#x6267;&#x884C;&#x3002;
+- &#x6240;&#x6709;&#x7684;&#x534F;&#x7A0B;&#x6784;&#x5EFA;&#x5668;&#x8BF8;&#x5982;launch &#x548C; async&#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x7684;CoroutineContext &#x53C2;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x88AB;&#x7528;&#x6765;&#x663E;&#x5F0F;&#x7684;&#x4E3A;&#x4E00;&#x4E2A;&#x65B0;&#x534F;&#x7A0B;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x8C03;&#x5EA6;&#x5668;
+```bash 
+    launch { // &#x8FD0;&#x2F8F;&#x5728;&#x2F57;&#x534F;&#x7A0B;&#x7684;&#x4E0A;&#x4E0B;&#x2F42;&#x4E2D;&#xFF0C;&#x5373; runBlocking &#x4E3B;&#x534F;&#x7A0B; 
+        println(&quot;main runBlocking : I&apos;m working in thread ${Thread.currentThread().name}&quot;) 
+    } 
+    launch(Dispatchers.Unconfined) { // &#x4E0D;&#x53D7;&#x9650;&#x7684;&#x2014;&#x2014;&#x5C06;&#x2F2F;&#x4F5C;&#x5728;&#x4E3B;&#x7EBF;&#x7A0B;&#x4E2D;
+        println(&quot;Unconfined : I&apos;m working in thread ${Thread.currentThread().name}&quot;)
+    } 
+    launch(Dispatchers.Default) { // &#x5C06;&#x4F1A;&#x83B7;&#x53D6;&#x9ED8;&#x8BA4;&#x8C03;&#x5EA6;&#x5668;
+        println(&quot;Default : I&apos;m working in thread ${Thread.currentThread().name}&quot;)
+    } 
+    launch(newSingleThreadContext(&quot;MyOwnThread&quot;)) { // &#x5C06;&#x4F7F;&#x5B83;&#x83B7;&#x5F97;&#x2F00;&#x4E2A;&#x65B0;&#x7684;&#x7EBF;&#x7A0B;
+        println(&quot;newSingleThreadContext: I&apos;m working in thread ${Thread.currentThread().name}&quot;) 
+    }
+</code></pre><ul>
+<li>&#x5F53;&#x534F;&#x7A0B;&#x5728; GlobalScope&#x4E2D;&#x542F;&#x52A8;&#x65F6;&#xFF0C;&#x4F7F;&#x7528;&#x7684;&#x662F;&#x7531; Dispatchers.Default &#x4EE3;&#x8868;&#x7684;&#x9ED8;&#x8BA4;&#x8C03;&#x5EA6;&#x5668;&#x3002;&#x9ED8;&#x8BA4;&#x8C03;&#x5EA6;&#x5668;&#x4F7F;&#x7528;&#x5171;&#x4EAB;&#x7684;&#x540E;&#x53F0;&#x7EBF;&#x7A0B;&#x6C60;</li>
+<li>Dispatchers.Unconfined,&#x975E;&#x53D7;&#x9650;&#x8C03;&#x5EA6;&#x5668;,&#x534F;&#x7A0B;&#x8C03;&#x5EA6;&#x5668;&#x5728;&#x8C03;&#x7528;&#x5B83;&#x7684;&#x7EBF;&#x7A0B;&#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x534F;&#x7A0B;&#xFF0C;&#x4F46;&#x5B83;&#x4EC5;&#x4EC5;&#x53EA;&#x662F;&#x8FD0;&#x884C;&#x5230;&#x7B2C;&#x4E00;&#x4E2A;&#x6302;&#x8D77;&#x70B9;&#x3002;&#x6302;&#x8D77;&#x540E;&#xFF0C;&#x5B83;&#x6062;&#x590D;&#x7EBF;&#x7A0B;&#x4E2D;&#x7684;&#x534F;&#x7A0B;</li>
+<li>&#x8C03;&#x8BD5;&#x534F;&#x7A0B;&#x4E0E;&#x7EBF;&#x7A0B;&#x3002;&#x534F;&#x7A0B;&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x4E0A;&#x6302;&#x8D77;&#x5E76;&#x5728;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x4E0A;&#x6062;&#x590D;&#x3002;</li>
+<li>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4F7F;&#x7528;withContext()&#x65B9;&#x6CD5;&#x6539;&#x53D8;&#x534F;&#x7A0B;&#x7684;&#x4E0A;&#x4E0B;&#x6587;</li>
+<li>&#x5B50;&#x4F5C;&#x4E1A;&#xFF1A;&#x5F53;&#x2F00;&#x4E2A;&#x534F;&#x7A0B;&#x88AB;&#x5176;&#x5B83;&#x534F;&#x7A0B;&#x5728; CoroutineScope &#x4E2D;&#x542F;&#x52A8;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5B83;&#x5C06;&#x901A;&#x8FC7; CoroutineScope.coroutineContext &#x6765; &#x627F;&#x88AD;&#x4E0A;&#x4E0B;&#x2F42;&#xFF0C;&#x5E76;&#x4E14;&#x8FD9;&#x4E2A;&#x65B0;&#x534F;&#x7A0B;&#x7684; Job &#x5C06;&#x4F1A;&#x6210;&#x4E3A;&#x2F57;&#x534F;&#x7A0B;&#x4F5C;&#x4E1A;&#x7684; &#x2F26; &#x4F5C;&#x4E1A;&#x3002;&#x5F53;&#x2F00;&#x4E2A;&#x2F57;&#x534F;&#x7A0B;&#x88AB;&#x53D6;&#x6D88;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6240;&#x6709;&#x5B83;&#x7684;&#x2F26; &#x534F;&#x7A0B;&#x4E5F;&#x4F1A;&#x88AB;&#x9012;&#x5F52;&#x7684;&#x53D6;&#x6D88;&#x3002;</li>
+<li>&#x5F53;&#x4F7F;&#x2F64; GlobalScope &#x6765;&#x542F;&#x52A8;&#x2F00;&#x4E2A;&#x534F;&#x7A0B;&#x65F6;&#xFF0C;&#x5219;&#x65B0;&#x534F;&#x7A0B;&#x7684;&#x4F5C;&#x4E1A;&#x6CA1;&#x6709;&#x2F57;&#x4F5C;&#x4E1A;&#x3002;&#x56E0;&#x6B64;&#x5B83;&#x4E0E;&#x8FD9;&#x4E2A;&#x542F;&#x52A8;&#x7684;&#x4F5C;&#x2F64;&#x57DF;&#x2F46;&#x5173; &#x4E14;&#x72EC;&#x2F74;&#x8FD0;&#x4F5C;&#x3002;</li>
+<li>&#x7236;&#x534F;&#x7A0B;&#x603B;&#x662F;&#x7B49;&#x5F85;&#x6240;&#x6709;&#x7684;&#x5B50;&#x534F;&#x7A0B;&#x6267;&#x884C;&#x7ED3;&#x675F;</li>
+<li>async(CoroutineName(&quot;v1coroutine&quot;)) &#x4E3A;&#x534F;&#x7A0B;&#x547D;&#x540D;&#xFF0C;&#x7528;&#x4E8E;&#x8C03;&#x8BD5;</li>
+<li>&#x7EC4;&#x5408;&#x4E0A;&#x4E0B;&#x2F42;&#x4E2D;&#x7684;&#x5143;&#x7D20; launch(Dispatchers.Default + CoroutineName(&quot;test&quot;))</li>
+<li>&#x7EBF;&#x7A0B;&#x5C40;&#x90E8;&#x6570;&#x636E;&#xFF1A;&#x6709;&#x65F6;&#xFF0C;&#x80FD;&#x591F;&#x5C06;&#x2F00;&#x4E9B;&#x7EBF;&#x7A0B;&#x5C40;&#x90E8;&#x6570;&#x636E;&#x4F20;&#x9012;&#x5230;&#x534F;&#x7A0B;&#x4E0E;&#x534F;&#x7A0B;&#x4E4B;&#x95F4;&#x662F;&#x5F88;&#x2F45;&#x4FBF;&#x7684;&#x3002;&#x7136;&#x2F7D;&#xFF0C;&#x7531;&#x4E8E;&#x5B83;&#x4EEC;&#x4E0D;&#x53D7;&#x4EFB;&#x4F55;&#x7279;&#x5B9A;&#x7EBF;&#x7A0B;&#x7684;&#x7EA6;&#x675F;&#xFF0C; &#x5982;&#x679C;&#x2F3F;&#x52A8;&#x5B8C;&#x6210;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x51FA;&#x73B0;&#x6837;&#x677F;&#x4EE3;&#x7801;&#x3002;ThreadLocal&#xFF0C;asContextElement &#x6269;&#x5C55;&#x51FD;&#x6570;&#x5728;&#x8FD9;&#x2FA5;&#x4F1A;&#x5145;&#x5F53;&#x6551;&#x5175;&#x3002;&#xFF1F;&#xFF1F;&#xFF1F;&#x5F85;&#x6D4B;&#x8BD5;</li>
+</ul>
 
                                 
                                 </section>
@@ -520,7 +549,7 @@ val time = measureTimeMillis {</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"协程基础","level":"1.4.1.1","depth":3,"next":{"title":"结束","level":"1.5","depth":1,"path":"end/README.md","ref":"end/README.md","articles":[]},"previous":{"title":"协程","level":"1.4.1","depth":2,"ref":"","articles":[{"title":"协程基础","level":"1.4.1.1","depth":3,"path":"kotlin/基础知识.md","ref":"kotlin/基础知识.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kotlin/基础知识.md","mtime":"2022-10-26T10:24:14.933Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-10-26T10:24:31.655Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"协程基础","level":"1.4.1.1","depth":3,"next":{"title":"结束","level":"1.5","depth":1,"path":"end/README.md","ref":"end/README.md","articles":[]},"previous":{"title":"协程","level":"1.4.1","depth":2,"ref":"","articles":[{"title":"协程基础","level":"1.4.1.1","depth":3,"path":"kotlin/基础知识.md","ref":"kotlin/基础知识.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kotlin/基础知识.md","mtime":"2022-10-27T05:37:59.256Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-10-27T05:38:19.880Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
