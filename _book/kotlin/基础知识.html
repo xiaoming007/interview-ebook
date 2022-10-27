@@ -434,71 +434,71 @@
 </li>
 <li>&#x53D6;&#x6D88;&#x662F;&#x534F;&#x4F5C;&#x7684; &#xFF08;&#x5982;&#x679C;&#x534F;&#x7A0B;&#x6B63;&#x5728;&#x6267;&#x884C;&#x8BA1;&#x7B97;&#x4EFB;&#x52A1;&#xFF0C;&#x5E76;&#x4E14;&#x6CA1;&#x6709;&#x68C0;&#x67E5;&#x53D6;&#x6D88;&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x662F;&#x4E0D;&#x80FD;&#x88AB;&#x53D6;&#x6D88;&#x7684;&#xFF09;</li>
 <li>isActive &#x4E00;&#x4E2A;&#x6269;&#x5C55;&#x5C5E;&#x6027;&#xFF0C;&#x7528;&#x4E8E;&#x663E;&#x793A;&#x7684;&#x68C0;&#x67E5;&#x53D6;&#x6D88;&#x72B6;&#x6001;</li>
-<li><p>&#x901A;&#x5E38;&#x4F7F;&#x7528;try finally &#x8868;&#x8FBE;&#x5F0F;&#x6765;&#x5904;&#x7406;&#x5728;&#x88AB;&#x53D6;&#x6D88;&#x65F6;&#x629B;&#x51FA;&#x7684;CancellationException&#x5F02;&#x5E38;
+<li>&#x901A;&#x5E38;&#x4F7F;&#x7528;try finally &#x8868;&#x8FBE;&#x5F0F;&#x6765;&#x5904;&#x7406;&#x5728;&#x88AB;&#x53D6;&#x6D88;&#x65F6;&#x629B;&#x51FA;&#x7684;CancellationException&#x5F02;&#x5E38;</li>
+</ul>
+<pre><code>val job = launch {
+
+    try { 
+        repeat(1000) { 
+            i -&gt; println(&quot;job: I&apos;m sleeping $i ...&quot;) 
+            delay(500L) 
+            } 
+    } finally { 
+        println(&quot;job: I&apos;m running finally&quot;) }
+
+}
+</code></pre><ul>
+<li><p>&#x8FD0;&#x884C;&#x4E0D;&#x80FD;&#x53D6;&#x6D88;&#x7684;&#x4EE3;&#x7801;&#x5757;&#xFF0C;&#x5728;finally&#x5757;&#x4E2D;&#x8C03;&#x7528;&#x6302;&#x8D77;&#x51FD;&#x6570;&#x7684;&#x884C;&#x4E3A;&#x90FD;&#x4F1A;&#x629B;&#x51FA;CancellationException,&#x53EF;&#x4EE5;&#x4F7F;&#x7528;withContext(NonCancellable){}&#x5904;&#x7406;
 ```bash
 val job = launch {</p>
 <p>  try { </p>
 <pre><code>  repeat(1000) { 
       i -&gt; println(&quot;job: I&apos;m sleeping $i ...&quot;) 
       delay(500L) 
-      } 
-</code></pre><p>  } finally { </p>
-<pre><code>  println(&quot;job: I&apos;m running finally&quot;) }
+      }
+  } finally {
+      withContext(NonCancellable) { 
+      println(&quot;job: I&apos;m running finally&quot;) 
+      delay(1000L) 
+      println(&quot;job: And I&apos;ve just delayed for 1 sec because I&apos;m non-cancellable&quot;)
+      }
+   }
 </code></pre></li>
 </ul>
 <p>}</p>
-<pre><code>- &#x8FD0;&#x884C;&#x4E0D;&#x80FD;&#x53D6;&#x6D88;&#x7684;&#x4EE3;&#x7801;&#x5757;&#xFF0C;&#x5728;finally&#x5757;&#x4E2D;&#x8C03;&#x7528;&#x6302;&#x8D77;&#x51FD;&#x6570;&#x7684;&#x884C;&#x4E3A;&#x90FD;&#x4F1A;&#x629B;&#x51FA;CancellationException,&#x53EF;&#x4EE5;&#x4F7F;&#x7528;withContext(NonCancellable){}&#x5904;&#x7406;
+<pre><code>#### &#x7EC4;&#x5408;&#x6302;&#x8D77;&#x51FD;&#x6570;
+- &#x6302;&#x8D77;&#x51FD;&#x6570;&#x9ED8;&#x8BA4;&#x662F;&#x987A;&#x5E8F;&#x8C03;&#x7528;&#x7684;&#xFF0C;&#x5982;&#x9700;&#x5E76;&#x53D1;&#x8C03;&#x7528;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;async
+- &#x60F0;&#x6027;&#x542F;&#x52A8;,&#x53EA;&#x6709;&#x7ED3;&#x679C; &#x901A;&#x8FC7; await &#x83B7;&#x53D6;&#x7684;&#x65F6;&#x5019;&#x534F;&#x7A0B;&#x624D;&#x4F1A;&#x542F;&#x52A8;&#xFF0C;&#x6216;&#x8005;&#x5728; Job &#x7684; start &#x51FD;&#x6570;&#x8C03;&#x2F64;&#x7684;&#x65F6;&#x5019;,&#x53EA;&#x8C03;&#x7528;await,&#x4E0D;&#x4F1A;&#x5E76;&#x884C;&#x6267;&#x884C;&#xFF0C;&#x53EA;&#x6709;&#x8C03;&#x7528;&#x4E86;start&#x65B9;&#x6CD5;&#x540E;&#x624D;&#x4F1A;&#x5E76;&#x53D1;&#x6267;&#x884C;
 ```bash
-val job = launch {
+val time = measureTimeMillis {
 
-    try { 
-        repeat(1000) { 
-            i -&gt; println(&quot;job: I&apos;m sleeping $i ...&quot;) 
-            delay(500L) 
-            }
-        } finally {
-            withContext(NonCancellable) { 
-            println(&quot;job: I&apos;m running finally&quot;) 
-            delay(1000L) 
-            println(&quot;job: And I&apos;ve just delayed for 1 sec because I&apos;m non-cancellable&quot;)
-            }
-         }
+    val one = async(start = CoroutineStart.LAZY) { doSomethingUsefulOne() }
+    val two = async(start = CoroutineStart.LAZY) { doSomethingUsefulTwo() }
+    // &#x6267;&#x2F8F;&#x2F00;&#x4E9B;&#x8BA1;&#x7B97; 
+    one.start() // &#x542F;&#x52A8;&#x7B2C;&#x2F00;&#x4E2A; 
+    two.start() // &#x542F;&#x52A8;&#x7B2C;&#x2F06;&#x4E2A; 
+    println(&quot;The answer is ${one.await() + two.await()}&quot;)
 
 }
-</code></pre><h4 id="&#x7EC4;&#x5408;&#x6302;&#x8D77;&#x51FD;&#x6570;">&#x7EC4;&#x5408;&#x6302;&#x8D77;&#x51FD;&#x6570;</h4>
-<ul>
-<li>&#x6302;&#x8D77;&#x51FD;&#x6570;&#x9ED8;&#x8BA4;&#x662F;&#x987A;&#x5E8F;&#x8C03;&#x7528;&#x7684;&#xFF0C;&#x5982;&#x9700;&#x5E76;&#x53D1;&#x8C03;&#x7528;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;async</li>
-<li><p>&#x60F0;&#x6027;&#x542F;&#x52A8;,&#x53EA;&#x6709;&#x7ED3;&#x679C; &#x901A;&#x8FC7; await &#x83B7;&#x53D6;&#x7684;&#x65F6;&#x5019;&#x534F;&#x7A0B;&#x624D;&#x4F1A;&#x542F;&#x52A8;&#xFF0C;&#x6216;&#x8005;&#x5728; Job &#x7684; start &#x51FD;&#x6570;&#x8C03;&#x2F64;&#x7684;&#x65F6;&#x5019;,&#x53EA;&#x8C03;&#x7528;await,&#x4E0D;&#x4F1A;&#x5E76;&#x884C;&#x6267;&#x884C;&#xFF0C;&#x53EA;&#x6709;&#x8C03;&#x7528;&#x4E86;start&#x65B9;&#x6CD5;&#x540E;&#x624D;&#x4F1A;&#x5E76;&#x53D1;&#x6267;&#x884C;
-```bash
-val time = measureTimeMillis {</p>
-<p>  val one = async(start = CoroutineStart.LAZY) { doSomethingUsefulOne() }
-  val two = async(start = CoroutineStart.LAZY) { doSomethingUsefulTwo() }
-  // &#x6267;&#x2F8F;&#x2F00;&#x4E9B;&#x8BA1;&#x7B97; 
-  one.start() // &#x542F;&#x52A8;&#x7B2C;&#x2F00;&#x4E2A; 
-  two.start() // &#x542F;&#x52A8;&#x7B2C;&#x2F06;&#x4E2A; 
-  println(&quot;The answer is ${one.await() + two.await()}&quot;)</p>
-</li>
-</ul>
-<p>}</p>
-<pre><code>- &#x4F7F;&#x7528;async&#x7684;&#x7ED3;&#x6784;&#x5316;&#x5E76;&#x53D1;&#x65F6;&#xFF0C;&#x53EA;&#x8981;&#x6709;&#x4E00;&#x4E2A;&#x534F;&#x7A0B;&#x629B;&#x51FA;&#x4E86;&#x5F02;&#x5E38;&#xFF0C;&#x6240;&#x6709;&#x5728;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x542F;&#x52A8;&#x7684;&#x534F;&#x7A0B;&#x90FD;&#x4F1A;&#x88AB;&#x53D6;&#x6D88;
-#### &#x534F;&#x7A0B;&#x4E0A;&#x4E0B;&#x6587;&#x4E0E;&#x8C03;&#x5EA6;&#x5668;
-- &#x534F;&#x7A0B;&#x4E0A;&#x4E0B;&#x6587;: &#x662F;&#x5404;&#x79CD;&#x4E0D;&#x540C;&#x5143;&#x7D20;&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x5176;&#x4E2D;&#x4E3B;&#x5143;&#x7D20;&#x662F;&#x534F;&#x7A0B;&#x4E2D;&#x7684;job&#x3002;&#x534F;&#x7A0B;&#x603B;&#x662F;&#x8FD0;&#x884C;&#x5728;&#x4E00;&#x4E9B;&#x4EE5;CoroutineContext&#x7C7B;&#x578B;&#x4E3A;&#x4EE3;&#x8868;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;
-- &#x8C03;&#x5EA6;&#x5668;: &#x534F;&#x7A0B;&#x4E0A;&#x4E0B;&#x6587;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x534F;&#x7A0B;&#x8C03;&#x5EA6;&#x5668;&#xFF0C;&#x5B83;&#x786E;&#x5B9A;&#x4E86;&#x76F8;&#x5173;&#x7684;&#x534F;&#x7A0B;&#x5728;&#x54EA;&#x4E2A;&#x7EBF;&#x7A0B;&#x6216;&#x54EA;&#x4E9B;&#x7EBF;&#x7A0B;&#x4E0A;&#x6267;&#x884C;&#x3002;
-- &#x6240;&#x6709;&#x7684;&#x534F;&#x7A0B;&#x6784;&#x5EFA;&#x5668;&#x8BF8;&#x5982;launch &#x548C; async&#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x7684;CoroutineContext &#x53C2;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x88AB;&#x7528;&#x6765;&#x663E;&#x5F0F;&#x7684;&#x4E3A;&#x4E00;&#x4E2A;&#x65B0;&#x534F;&#x7A0B;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x8C03;&#x5EA6;&#x5668;
-```bash 
-    launch { // &#x8FD0;&#x2F8F;&#x5728;&#x2F57;&#x534F;&#x7A0B;&#x7684;&#x4E0A;&#x4E0B;&#x2F42;&#x4E2D;&#xFF0C;&#x5373; runBlocking &#x4E3B;&#x534F;&#x7A0B; 
-        println(&quot;main runBlocking : I&apos;m working in thread ${Thread.currentThread().name}&quot;) 
-    } 
-    launch(Dispatchers.Unconfined) { // &#x4E0D;&#x53D7;&#x9650;&#x7684;&#x2014;&#x2014;&#x5C06;&#x2F2F;&#x4F5C;&#x5728;&#x4E3B;&#x7EBF;&#x7A0B;&#x4E2D;
-        println(&quot;Unconfined : I&apos;m working in thread ${Thread.currentThread().name}&quot;)
-    } 
-    launch(Dispatchers.Default) { // &#x5C06;&#x4F1A;&#x83B7;&#x53D6;&#x9ED8;&#x8BA4;&#x8C03;&#x5EA6;&#x5668;
-        println(&quot;Default : I&apos;m working in thread ${Thread.currentThread().name}&quot;)
-    } 
-    launch(newSingleThreadContext(&quot;MyOwnThread&quot;)) { // &#x5C06;&#x4F7F;&#x5B83;&#x83B7;&#x5F97;&#x2F00;&#x4E2A;&#x65B0;&#x7684;&#x7EBF;&#x7A0B;
-        println(&quot;newSingleThreadContext: I&apos;m working in thread ${Thread.currentThread().name}&quot;) 
-    }
 </code></pre><ul>
+<li>&#x4F7F;&#x7528;async&#x7684;&#x7ED3;&#x6784;&#x5316;&#x5E76;&#x53D1;&#x65F6;&#xFF0C;&#x53EA;&#x8981;&#x6709;&#x4E00;&#x4E2A;&#x534F;&#x7A0B;&#x629B;&#x51FA;&#x4E86;&#x5F02;&#x5E38;&#xFF0C;&#x6240;&#x6709;&#x5728;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x542F;&#x52A8;&#x7684;&#x534F;&#x7A0B;&#x90FD;&#x4F1A;&#x88AB;&#x53D6;&#x6D88;<h4 id="&#x534F;&#x7A0B;&#x4E0A;&#x4E0B;&#x6587;&#x4E0E;&#x8C03;&#x5EA6;&#x5668;">&#x534F;&#x7A0B;&#x4E0A;&#x4E0B;&#x6587;&#x4E0E;&#x8C03;&#x5EA6;&#x5668;</h4>
+</li>
+<li>&#x534F;&#x7A0B;&#x4E0A;&#x4E0B;&#x6587;: &#x662F;&#x5404;&#x79CD;&#x4E0D;&#x540C;&#x5143;&#x7D20;&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x5176;&#x4E2D;&#x4E3B;&#x5143;&#x7D20;&#x662F;&#x534F;&#x7A0B;&#x4E2D;&#x7684;job&#x3002;&#x534F;&#x7A0B;&#x603B;&#x662F;&#x8FD0;&#x884C;&#x5728;&#x4E00;&#x4E9B;&#x4EE5;CoroutineContext&#x7C7B;&#x578B;&#x4E3A;&#x4EE3;&#x8868;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;</li>
+<li>&#x8C03;&#x5EA6;&#x5668;: &#x534F;&#x7A0B;&#x4E0A;&#x4E0B;&#x6587;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x534F;&#x7A0B;&#x8C03;&#x5EA6;&#x5668;&#xFF0C;&#x5B83;&#x786E;&#x5B9A;&#x4E86;&#x76F8;&#x5173;&#x7684;&#x534F;&#x7A0B;&#x5728;&#x54EA;&#x4E2A;&#x7EBF;&#x7A0B;&#x6216;&#x54EA;&#x4E9B;&#x7EBF;&#x7A0B;&#x4E0A;&#x6267;&#x884C;&#x3002;</li>
+<li>&#x6240;&#x6709;&#x7684;&#x534F;&#x7A0B;&#x6784;&#x5EFA;&#x5668;&#x8BF8;&#x5982;launch &#x548C; async&#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x7684;CoroutineContext &#x53C2;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x88AB;&#x7528;&#x6765;&#x663E;&#x5F0F;&#x7684;&#x4E3A;&#x4E00;&#x4E2A;&#x65B0;&#x534F;&#x7A0B;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x8C03;&#x5EA6;&#x5668;<pre><code class="lang-bash">  launch { // &#x8FD0;&#x2F8F;&#x5728;&#x2F57;&#x534F;&#x7A0B;&#x7684;&#x4E0A;&#x4E0B;&#x2F42;&#x4E2D;&#xFF0C;&#x5373; runBlocking &#x4E3B;&#x534F;&#x7A0B; 
+      println(<span class="hljs-string">&quot;main runBlocking : I&apos;m working in thread <span class="hljs-variable">${Thread.currentThread().name}</span>&quot;</span>) 
+  } 
+  launch(Dispatchers.Unconfined) { // &#x4E0D;&#x53D7;&#x9650;&#x7684;&#x2014;&#x2014;&#x5C06;&#x2F2F;&#x4F5C;&#x5728;&#x4E3B;&#x7EBF;&#x7A0B;&#x4E2D;
+      println(<span class="hljs-string">&quot;Unconfined : I&apos;m working in thread <span class="hljs-variable">${Thread.currentThread().name}</span>&quot;</span>)
+  } 
+  launch(Dispatchers.Default) { // &#x5C06;&#x4F1A;&#x83B7;&#x53D6;&#x9ED8;&#x8BA4;&#x8C03;&#x5EA6;&#x5668;
+      println(<span class="hljs-string">&quot;Default : I&apos;m working in thread <span class="hljs-variable">${Thread.currentThread().name}</span>&quot;</span>)
+  } 
+  launch(newSingleThreadContext(<span class="hljs-string">&quot;MyOwnThread&quot;</span>)) { // &#x5C06;&#x4F7F;&#x5B83;&#x83B7;&#x5F97;&#x2F00;&#x4E2A;&#x65B0;&#x7684;&#x7EBF;&#x7A0B;
+      println(<span class="hljs-string">&quot;newSingleThreadContext: I&apos;m working in thread <span class="hljs-variable">${Thread.currentThread().name}</span>&quot;</span>) 
+  }
+</code></pre>
+</li>
 <li>&#x5F53;&#x534F;&#x7A0B;&#x5728; GlobalScope&#x4E2D;&#x542F;&#x52A8;&#x65F6;&#xFF0C;&#x4F7F;&#x7528;&#x7684;&#x662F;&#x7531; Dispatchers.Default &#x4EE3;&#x8868;&#x7684;&#x9ED8;&#x8BA4;&#x8C03;&#x5EA6;&#x5668;&#x3002;&#x9ED8;&#x8BA4;&#x8C03;&#x5EA6;&#x5668;&#x4F7F;&#x7528;&#x5171;&#x4EAB;&#x7684;&#x540E;&#x53F0;&#x7EBF;&#x7A0B;&#x6C60;</li>
 <li>Dispatchers.Unconfined,&#x975E;&#x53D7;&#x9650;&#x8C03;&#x5EA6;&#x5668;,&#x534F;&#x7A0B;&#x8C03;&#x5EA6;&#x5668;&#x5728;&#x8C03;&#x7528;&#x5B83;&#x7684;&#x7EBF;&#x7A0B;&#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x534F;&#x7A0B;&#xFF0C;&#x4F46;&#x5B83;&#x4EC5;&#x4EC5;&#x53EA;&#x662F;&#x8FD0;&#x884C;&#x5230;&#x7B2C;&#x4E00;&#x4E2A;&#x6302;&#x8D77;&#x70B9;&#x3002;&#x6302;&#x8D77;&#x540E;&#xFF0C;&#x5B83;&#x6062;&#x590D;&#x7EBF;&#x7A0B;&#x4E2D;&#x7684;&#x534F;&#x7A0B;</li>
 <li>&#x8C03;&#x8BD5;&#x534F;&#x7A0B;&#x4E0E;&#x7EBF;&#x7A0B;&#x3002;&#x534F;&#x7A0B;&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x4E0A;&#x6302;&#x8D77;&#x5E76;&#x5728;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x4E0A;&#x6062;&#x590D;&#x3002;</li>
@@ -549,7 +549,7 @@ val time = measureTimeMillis {</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"协程基础","level":"1.4.1.1","depth":3,"next":{"title":"结束","level":"1.5","depth":1,"path":"end/README.md","ref":"end/README.md","articles":[]},"previous":{"title":"协程","level":"1.4.1","depth":2,"ref":"","articles":[{"title":"协程基础","level":"1.4.1.1","depth":3,"path":"kotlin/基础知识.md","ref":"kotlin/基础知识.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kotlin/基础知识.md","mtime":"2022-10-27T05:37:59.256Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-10-27T05:38:19.880Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"协程基础","level":"1.4.1.1","depth":3,"next":{"title":"结束","level":"1.5","depth":1,"path":"end/README.md","ref":"end/README.md","articles":[]},"previous":{"title":"协程","level":"1.4.1","depth":2,"ref":"","articles":[{"title":"协程基础","level":"1.4.1.1","depth":3,"path":"kotlin/基础知识.md","ref":"kotlin/基础知识.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kotlin/基础知识.md","mtime":"2022-10-27T05:42:09.206Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-10-27T05:42:24.328Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
