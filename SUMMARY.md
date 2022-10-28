@@ -20,5 +20,7 @@
     * 协程
         * [协程基础](kotlin/基础知识.md)
         * [异步流](kotlin/异步流.md)
+        * [通道](kotlin/通道基础.md)
+        * [异常](kotlin/异常处理.md)
 * [结束](end/README.md)
 
