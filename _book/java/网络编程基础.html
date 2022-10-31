@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>通道 · GitBook</title>
+        <title>网络编程 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="异常处理.html" />
     
-    
-    <link rel="prev" href="异步流.html" />
+    <link rel="prev" href="红黑树搜索算法.html" />
     
 
     </head>
@@ -271,9 +269,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="../java/ArrayList与LinkedList.html">
+        <li class="chapter " data-level="1.3.1" data-path="ArrayList与LinkedList.html">
             
-                <a href="../java/ArrayList与LinkedList.html">
+                <a href="ArrayList与LinkedList.html">
             
                     
                     ArrayList与LinkedList
@@ -284,9 +282,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="../java/多线程概念知识.html">
+        <li class="chapter " data-level="1.3.2" data-path="多线程概念知识.html">
             
-                <a href="../java/多线程概念知识.html">
+                <a href="多线程概念知识.html">
             
                     
                     java多线程
@@ -297,9 +295,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="../java/ThreadPoolExecutor源码分析.html">
+        <li class="chapter " data-level="1.3.3" data-path="ThreadPoolExecutor源码分析.html">
             
-                <a href="../java/ThreadPoolExecutor源码分析.html">
+                <a href="ThreadPoolExecutor源码分析.html">
             
                     
                     线程池ThreadPoolExecutor
@@ -310,9 +308,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="../java/HashMap相关.html">
+        <li class="chapter " data-level="1.3.4" data-path="HashMap相关.html">
             
-                <a href="../java/HashMap相关.html">
+                <a href="HashMap相关.html">
             
                     
                     HashMap
@@ -323,9 +321,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5" data-path="../java/红黑树搜索算法.html">
+        <li class="chapter " data-level="1.3.5" data-path="红黑树搜索算法.html">
             
-                <a href="../java/红黑树搜索算法.html">
+                <a href="红黑树搜索算法.html">
             
                     
                     红黑树
@@ -336,9 +334,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.6" data-path="../java/网络编程基础.html">
+        <li class="chapter active" data-level="1.3.6" data-path="网络编程基础.html">
             
-                <a href="../java/网络编程基础.html">
+                <a href="网络编程基础.html">
             
                     
                     网络编程
@@ -382,9 +380,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1.1" data-path="基础知识.html">
+        <li class="chapter " data-level="1.4.1.1" data-path="../kotlin/基础知识.html">
             
-                <a href="基础知识.html">
+                <a href="../kotlin/基础知识.html">
             
                     
                     协程基础
@@ -395,9 +393,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.1.2" data-path="异步流.html">
+        <li class="chapter " data-level="1.4.1.2" data-path="../kotlin/异步流.html">
             
-                <a href="异步流.html">
+                <a href="../kotlin/异步流.html">
             
                     
                     异步流
@@ -408,9 +406,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4.1.3" data-path="通道基础.html">
+        <li class="chapter " data-level="1.4.1.3" data-path="../kotlin/通道基础.html">
             
-                <a href="通道基础.html">
+                <a href="../kotlin/通道基础.html">
             
                     
                     通道
@@ -421,9 +419,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.1.4" data-path="异常处理.html">
+        <li class="chapter " data-level="1.4.1.4" data-path="../kotlin/异常处理.html">
             
-                <a href="异常处理.html">
+                <a href="../kotlin/异常处理.html">
             
                     
                     异常
@@ -487,7 +485,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >通道</a>
+        <a href=".." >网络编程</a>
     </h1>
 </div>
 
@@ -502,7 +500,9 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x901A;&#x9053;">&#x901A;&#x9053;</h1>
+                                <h1 id="&#x7F51;&#x7EDC;&#x7F16;&#x7A0B;">&#x7F51;&#x7EDC;&#x7F16;&#x7A0B;</h1>
+<h5 id="1-tcp-&#x901A;&#x4FE1;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x548C;&#x670D;&#x52A1;&#x7AEF;&#xFF0C;&#x4F7F;&#x7528;io&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x901A;&#x4FE1;&#xFF08;&#x5B57;&#x8282;&#x6D41;&#xFF09;&#x3002;inputstream&#x6D41;&#x548C;outputstream&#x6D41;&#x5BF9;&#x8C61;&#x6709;&#x5BA2;&#x6237;&#x7AEF;&#x53BB;&#x521B;&#x5EFA;&#xFF0C;&#x670D;&#x52A1;&#x7AEF;&#x662F;&#x6CA1;&#x6709;io&#x6D41;&#x7684;&#xFF0C;&#x670D;&#x52A1;&#x5668;accept&#xFF08;&#xFF09;&#x83B7;&#x53D6;&#x8BF7;&#x6C42;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x7684;socket&#xFF0C;&#x4F7F;&#x7528;&#x6BCF;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;socket&#x4E2D;&#x63D0;&#x4F9B;&#x7684;io&#x6D41;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x8FDB;&#x884C;&#x4EA4;&#x4E92;&#xFF08;&#x670D;&#x52A1;&#x5668;&#x4F7F;&#x7528;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x5B57;&#x8282;&#x8F93;&#x5165;&#x6D41;&#x8BFB;&#x53D6;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x4F7F;&#x7528;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x5B57;&#x8282;&#x8F93;&#x51FA;&#x6D41;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#x56DE;&#x5199;&#x6570;&#x636E;&#xFF09;">1. tcp &#x901A;&#x4FE1;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x548C;&#x670D;&#x52A1;&#x7AEF;&#xFF0C;&#x4F7F;&#x7528;IO&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x901A;&#x4FE1;&#xFF08;&#x5B57;&#x8282;&#x6D41;&#xFF09;&#x3002;InputStream&#x6D41;&#x548C;OutputStream&#x6D41;&#x5BF9;&#x8C61;&#x6709;&#x5BA2;&#x6237;&#x7AEF;&#x53BB;&#x521B;&#x5EFA;&#xFF0C;&#x670D;&#x52A1;&#x7AEF;&#x662F;&#x6CA1;&#x6709;IO&#x6D41;&#x7684;&#xFF0C;&#x670D;&#x52A1;&#x5668;accept&#xFF08;&#xFF09;&#x83B7;&#x53D6;&#x8BF7;&#x6C42;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x7684;socket&#xFF0C;&#x4F7F;&#x7528;&#x6BCF;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;Socket&#x4E2D;&#x63D0;&#x4F9B;&#x7684;IO&#x6D41;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x8FDB;&#x884C;&#x4EA4;&#x4E92;&#xFF08;&#x670D;&#x52A1;&#x5668;&#x4F7F;&#x7528;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x5B57;&#x8282;&#x8F93;&#x5165;&#x6D41;&#x8BFB;&#x53D6;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x4F7F;&#x7528;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x5B57;&#x8282;&#x8F93;&#x51FA;&#x6D41;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#x56DE;&#x5199;&#x6570;&#x636E;&#xFF09;</h5>
+<h5 id="2&#x6587;&#x4EF6;&#x4E0A;&#x4F20;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x81EA;&#x5DF1;&#x521B;&#x5EFA;&#x7684;&#x5B57;&#x8282;&#x6D41;&#x5BF9;&#x8C61;">2.&#x6587;&#x4EF6;&#x4E0A;&#x4F20;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x81EA;&#x5DF1;&#x521B;&#x5EFA;&#x7684;&#x5B57;&#x8282;&#x6D41;&#x5BF9;&#x8C61;</h5>
 
                                 
                                 </section>
@@ -530,14 +530,10 @@
 
             
                 
-                <a href="异步流.html" class="navigation navigation-prev " aria-label="Previous page: 异步流">
+                <a href="红黑树搜索算法.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 红黑树">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="异常处理.html" class="navigation navigation-next " aria-label="Next page: 异常">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -546,7 +542,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"通道","level":"1.4.1.3","depth":3,"next":{"title":"异常","level":"1.4.1.4","depth":3,"path":"kotlin/异常处理.md","ref":"kotlin/异常处理.md","articles":[]},"previous":{"title":"异步流","level":"1.4.1.2","depth":3,"path":"kotlin/异步流.md","ref":"kotlin/异步流.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kotlin/通道基础.md","mtime":"2022-10-28T06:42:35.661Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-10-31T09:18:21.701Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"网络编程","level":"1.3.6","depth":2,"next":{"title":"Kotlin","level":"1.4","depth":1,"ref":"","articles":[{"title":"协程","level":"1.4.1","depth":2,"ref":"","articles":[{"title":"协程基础","level":"1.4.1.1","depth":3,"path":"kotlin/基础知识.md","ref":"kotlin/基础知识.md","articles":[]},{"title":"异步流","level":"1.4.1.2","depth":3,"path":"kotlin/异步流.md","ref":"kotlin/异步流.md","articles":[]},{"title":"通道","level":"1.4.1.3","depth":3,"path":"kotlin/通道基础.md","ref":"kotlin/通道基础.md","articles":[]},{"title":"异常","level":"1.4.1.4","depth":3,"path":"kotlin/异常处理.md","ref":"kotlin/异常处理.md","articles":[]}]}]},"previous":{"title":"红黑树","level":"1.3.5","depth":2,"path":"java/红黑树搜索算法.md","ref":"java/红黑树搜索算法.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"java/网络编程基础.md","mtime":"2022-10-31T09:17:57.351Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-10-31T09:18:21.701Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
