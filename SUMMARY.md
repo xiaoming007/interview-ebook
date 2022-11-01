@@ -19,6 +19,10 @@
     * [HashMap](java/HashMap相关.md)
     * [红黑树](java/红黑树搜索算法.md)
     * [网络编程](java/网络编程基础.md)
+    * [四大引用](java/四大引用.md)
+    * [String,==,equals](java/String,==,equals的区别.md)
+* 设计模式
+    * [代理模式](designPatterns/静态与动态代理.md)
 * Kotlin
     * 协程
         * [协程基础](kotlin/基础知识.md)
