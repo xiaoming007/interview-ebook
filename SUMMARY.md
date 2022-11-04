@@ -1,6 +1,6 @@
 # Summary
 
-* [简介](README.md)
+* [Introduction](README.md)
 * 项目中的问题
     * 社区项目
         * [屏幕适配方案](community/屏幕适配方案.md)
@@ -20,10 +20,10 @@
     * [红黑树](java/红黑树搜索算法.md)
     * [Volatile](java/volatile实现原理.md)
     * [常用锁](java/几种常用锁.md)
-* Android
-    * [网络编程](java/网络编程基础.md)
-    * [四大引用](java/四大引用.md)
     * [String,==,equals](java/String,==,equals的区别.md)
+* Android
+    * [网络编程](android/网络编程基础.md)
+    * [四大引用](android/四大引用.md)
 * 设计模式
     * [代理模式](designPatterns/静态与动态代理.md)
 * Kotlin
@@ -32,5 +32,4 @@
         * [异步流](kotlin/异步流.md)
         * [通道](kotlin/通道基础.md)
         * [异常](kotlin/异常处理.md)
-* [结束](end/README.md)
 
