@@ -12,12 +12,16 @@
         * [自定义view](community/邀请函.md)
         * [项目使用协程网络封装](community/网络封装.md)
         * [项目构建速度问题](community/加速构建速度.md)
-* [java基础](README.md)
+* java基础
     * [ArrayList与LinkedList](java/ArrayList与LinkedList.md)
     * [java多线程](java/多线程概念知识.md)
     * [线程池ThreadPoolExecutor](java/ThreadPoolExecutor源码分析.md)
     * [HashMap](java/HashMap相关.md)
     * [红黑树](java/红黑树搜索算法.md)
+    * [Volatile](java/volatile实现原理.md)
+    * [常用锁](java/几种常用锁.md)
+* Android
+    * [Context](Android/Context源码分析.md)
 * Kotlin
     * 协程
         * [协程基础](kotlin/基础知识.md)
