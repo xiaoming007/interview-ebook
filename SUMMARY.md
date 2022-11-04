@@ -21,7 +21,11 @@
     * [Volatile](java/volatile实现原理.md)
     * [常用锁](java/几种常用锁.md)
 * Android
-    * [Context](Android/Context源码分析.md)
+    * [网络编程](java/网络编程基础.md)
+    * [四大引用](java/四大引用.md)
+    * [String,==,equals](java/String,==,equals的区别.md)
+* 设计模式
+    * [代理模式](designPatterns/静态与动态代理.md)
 * Kotlin
     * 协程
         * [协程基础](kotlin/基础知识.md)
