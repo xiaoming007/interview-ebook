@@ -25,6 +25,23 @@
     * [四大引用](java/四大引用.md)
 * Android
     * [Context](Android/Context源码分析.md)
+    * [Android设备启动流程](Android/Android启动流程.md)
+    * [Activity,View,Window](Android/Activity,view,window关系.md)
+    * [.dex文件](Android/dex文件结构是什么样的.md)
+    * [apk打包流程](Android/apk打包流程是怎样的.md)
+    * [事件分发机制](Android/事件分发机制源码解析.md)
+    * [自定义view](Android/自定义view相关.md)
+    * [XML解析过程与原理](Android/XML解析.md)
+    * [setContentView原理](Android/setContentView.md)
+    * [处理UI卡顿问题](Android/ui卡顿问题处理.md)
+    * [Viewpager的缓存机制原理](Android/viewpager原理.md)
+    * [viewpager+fragment嵌套](Android/viewpager+fragment嵌套使用.md)
+    * [RecycleView源码分析](Android/RecycleView源码.md)
+    * [减少OOM的发生](Android/OOM的发生与减少发生方法.md)
+    * [内存抖动的影响与原理](Android/内存抖动.md)
+    * [解决应用崩溃](Android/解决应用的崩溃.md)
+    * [ANR处理](Android/ANR怎么避免.md)
+    * [app启动优化](Android/app启动优化.md)
 * 设计模式
     * [代理模式](designPatterns/静态与动态代理.md)
 * Kotlin
