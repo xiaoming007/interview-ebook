@@ -1018,6 +1018,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.4.43" data-path="Https.html">
+            
+                <a href="Https.html">
+            
+                    
+                    Https
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1483,6 +1496,41 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="viewpager&#x7684;&#x7F13;&#x5B58;&#x673A;&#x5236;&#x539F;&#x7406;">Viewpager&#x7684;&#x7F13;&#x5B58;&#x673A;&#x5236;&#x539F;&#x7406;</h1>
+<h4 id="1recycleview&#x662F;&#x6709;filling&#x4E8B;&#x4EF6;&#x7684;&#xFF0C;&#x6709;&#x60EF;&#x6027;&#x6EDA;&#x52A8;&#x6548;&#x679C;&#xFF0C;&#x4F46;&#x662F;viewpager2&#x6CA1;&#x6709;&#xFF0C;&#x8FD9;&#x662F;&#x600E;&#x4E48;&#x5B9E;&#x73B0;&#x7684;">1.RecycleView&#x662F;&#x6709;Filling&#x4E8B;&#x4EF6;&#x7684;&#xFF0C;&#x6709;&#x60EF;&#x6027;&#x6EDA;&#x52A8;&#x6548;&#x679C;&#xFF0C;&#x4F46;&#x662F;ViewPager2&#x6CA1;&#x6709;&#xFF0C;&#x8FD9;&#x662F;&#x600E;&#x4E48;&#x5B9E;&#x73B0;&#x7684;</h4>
+<h5 id="1&#x53D1;&#x751F;fling&#x4E8B;&#x4EF6;&#xFF0C;&#x963B;&#x6B62;recyclerview&#x7684;fling&#x4E8B;&#x4EF6;">(1).&#x53D1;&#x751F;Fling&#x4E8B;&#x4EF6;&#xFF0C;&#x963B;&#x6B62;RecyclerView&#x7684;Fling&#x4E8B;&#x4EF6;</h5>
+<p>SnapHelper&#x7C7B;&#x5904;&#x7406;View&#x7684;Fling&#x4E8B;&#x4EF6;&#xFF0C;&#x5728;onFling()&#x65B9;&#x6CD5;&#x4E2D;&#x4F1A;&#x8C03;&#x7528;snapFromFling()&#x65B9;&#x6CD5;&#x6765;&#x786E;&#x5B9A;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;snapFromFling()&#x65B9;&#x6CD5;&#x4F1A;&#x8C03;&#x7528;findTargetSnapPosition()&#x8FD9;&#x4E2A;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#xFF0C;&#x6709;PageSnapHelper&#x7C7B;&#x5B9E;&#x73B0;findTargetSnapPosition()&#x65B9;&#x6CD5;&#x4F9B;&#x5176;&#x8C03;&#x7528;&#xFF0C;&#x9700;&#x8981;Fling&#xFF0C;&#x6240;&#x4EE5;&#x8FD4;&#x56DE;&#x4E86;&#x4E00;&#x4E2A;&#x5177;&#x4F53;&#x7684;targetPosition,&#x7136;&#x540E;&#x901A;&#x8FC7;smollthScroll &#x6ED1;&#x52A8;&#x5230;&#x4E0A;&#x4E00;&#x4E2A;&#x9875;&#x9762;&#xFF0C;&#x6216;&#x8005;&#x4E0B;&#x4E00;&#x4E2A;&#x9875;&#x9762;</p>
+<h5 id="2&#x9875;&#x9762;&#x4E0D;&#x53D1;&#x751F;fling&#x4E8B;&#x4EF6;&#x65F6;&#xFF0C;&#x9875;&#x9762;&#x6ED1;&#x52A8;&#x4E00;&#x534A;&#x65F6;&#x677E;&#x624B;&#x540E;&#x7684;&#x56DE;&#x5F39;&#x5904;&#x7406;">(2).&#x9875;&#x9762;&#x4E0D;&#x53D1;&#x751F;Fling&#x4E8B;&#x4EF6;&#x65F6;&#xFF0C;&#x9875;&#x9762;&#x6ED1;&#x52A8;&#x4E00;&#x534A;&#x65F6;&#x677E;&#x624B;&#x540E;&#x7684;&#x56DE;&#x5F39;&#x5904;&#x7406;</h5>
+<p>&#x4F1A;&#x56DE;&#x8C03;SnapHelper&#x91CC;&#x6CE8;&#x518C;&#x7684;RecyclerView.OnScrollListener&#x6ED1;&#x52A8;&#x76D1;&#x542C;&#x91CC;&#x7684;&#x6ED1;&#x52A8;&#x72B6;&#x6001;&#x53D8;&#x5316;&#x76D1;&#x542C;&#x65B9;&#x6CD5;&#xFF0C;&#x6B64;&#x65F6;Recycleview&#x7684;&#x72B6;&#x6001;&#x4E3A;IDLE,&#x6240;&#x4EE5;&#x6267;&#x884C;snapToTargetExistingView()&#x65B9;&#x6CD5;&#xFF0C;&#x5728;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x91CC;&#xFF0C;&#x9996;&#x5148;&#x8C03;&#x7528;findSnapView()&#x65B9;&#x6CD5;&#x627E;&#x5230;&#x8981;&#x6ED1;&#x52A8;&#x7684;view&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;view&#x53C2;&#x6570;&#xFF0C;&#x8C03;&#x7528;calculateDistanceToFinalSnap()&#x65B9;&#x6CD5;&#x8BA1;&#x7B97;&#x51FA;&#x9700;&#x8981;&#x6ED1;&#x52A8;&#x7684;&#x8DDD;&#x79BB;&#xFF0C;&#x6700;&#x540E;&#x8C03;&#x7528;mRecyclerView.smoothScrooBy()&#x65B9;&#x6CD5;&#x6ED1;&#x52A8;&#x5230;&#x5177;&#x4F53;&#x7684;&#x4F4D;&#x7F6E;</p>
+<h5 id="3&#x6ED1;&#x52A8;&#x4F4D;&#x7F6E;&#x7684;&#x8BA1;&#x7B97;">(3).&#x6ED1;&#x52A8;&#x4F4D;&#x7F6E;&#x7684;&#x8BA1;&#x7B97;</h5>
+<p>&#x904D;&#x5386;&#x6240;&#x6709;&#x5B50;view&#xFF0C;&#x627E;&#x5230;&#x5C4F;&#x5E55;&#x7684;&#x4E2D;&#x5FC3;&#x4F4D;&#x7F6E;&#xFF0C;&#x627E;&#x5230;view&#x7684;&#x4E2D;&#x5FC3;&#x4F4D;&#x7F6E;&#xFF0C;&#x76F8;&#x51CF;&#xFF0C;&#x6BD4;&#x8F83;&#x7136;&#x540E;&#x53D6;&#x51FA;&#x76F8;&#x51CF;&#x540E;&#x503C;&#x6700;&#x5C0F;&#x7684;&#x90A3;&#x4E2A;view&#xFF0C;&#x540C;&#x7406;&#x83B7;&#x53D6;&#x8FD9;&#x4E2A;view&#x7684;&#x4E2D;&#x5FC3;&#x4F4D;&#x7F6E;&#xFF0C;&#x51CF;&#x53BB;&#x7236;view&#x7684;&#x4E2D;&#x5FC3;&#x4F4D;&#x7F6E;&#xFF0C;&#x5C31;&#x662F;&#x9700;&#x8981;&#x6ED1;&#x52A8;&#x7684;&#x8DDD;&#x79BB;&#xFF0C;&#x6709;&#x6B63;&#x8D1F;&#x4E4B;&#x5206;&#xFF0C;&#x5C31;&#x662F;&#x6ED1;&#x52A8;&#x65B9;&#x5411;</p>
+<h5 id="4&#x6709;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#x9700;&#x8981;&#x89E3;&#x51B3;&#xFF0C;recyclerview&#x6ED1;&#x52A8;&#x540E;&#x753B;&#x5E03;&#x7684;&#x9AD8;&#x5EA6;&#x6216;&#x8005;&#x5BBD;&#x5EA6;&#x95EE;&#x9898;">(4).&#x6709;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#x9700;&#x8981;&#x89E3;&#x51B3;&#xFF0C;RecyclerView&#x6ED1;&#x52A8;&#x540E;&#x753B;&#x5E03;&#x7684;&#x9AD8;&#x5EA6;&#x6216;&#x8005;&#x5BBD;&#x5EA6;&#x95EE;&#x9898;</h5>
+<h4 id="2recyclerview&#x5982;&#x4F55;&#x52A0;&#x8F7D;fragment&#xFF1F;">2.RecyclerView&#x5982;&#x4F55;&#x52A0;&#x8F7D;Fragment&#xFF1F;</h4>
+<p>&#x67E5;&#x770B;&#x7B2C;&#x4E03;&#x6761;</p>
+<h4 id="3viewpager2&#x6ED1;&#x52A8;&#x5230;&#x6700;&#x540E;&#x4E00;&#x4E2A;tab&#x9ED8;&#x8BA4;&#x4F1A;&#x9500;&#x6BC1;&#x4E4B;&#x524D;&#x7684;fragment&#x5417;">3.ViewPager2&#x6ED1;&#x52A8;&#x5230;&#x6700;&#x540E;&#x4E00;&#x4E2A;tab&#x9ED8;&#x8BA4;&#x4F1A;&#x9500;&#x6BC1;&#x4E4B;&#x524D;&#x7684;fragment&#x5417;</h4>
+<h5 id="1prefetch&#x673A;&#x5236;">(1).Prefetch&#x673A;&#x5236;</h5>
+<p>(view_pager.getChildAt(0) as RecyclerView).layoutManager!!.isItemPrefetchEnabled = false,&#x8BBE;&#x7F6E;&#x4E4B;&#x540E;&#x9ED8;&#x8BA4;&#x7F13;&#x5B58;&#x4E0E;&#x5F53;&#x524D;&#x9875;&#x9762;&#x6700;&#x8FD1;&#x7684;&#x4E24;&#x4E2A;&#x9875;&#x9762;&#x3002;&#x5728;GapWork &#x7EBF;&#x7A0B;&#x4E2D;&#x505A;&#x4E00;&#x4E9B;&#x64CD;&#x4F5C;&#xFF0C;&#x6D41;&#x7A0B;RecyclerView&#x7684;onTouchEvent() -&gt;postFromTraversal() -&gt; buildTaskList() -&gt; collectPrefectchPositionsFromView()</p>
+<h4 id="4viewpager2&#x9ED8;&#x8BA4;&#x4E0D;&#x4F1A;&#x8FDB;&#x884C;&#x63D0;&#x524D;&#x52A0;&#x8F7D;">4.ViewPager2&#x9ED8;&#x8BA4;&#x4E0D;&#x4F1A;&#x8FDB;&#x884C;&#x63D0;&#x524D;&#x52A0;&#x8F7D;</h4>
+<p>offscreenPageLimit&#x9ED8;&#x8BA4;&#x662F;0&#xFF0C;&#x4E0D;&#x4F1A;&#x63D0;&#x524D;&#x52A0;&#x8F7D;&#x4E0B;&#x4E00;&#x4E2A;Fragment&#x9ED8;&#x8BA4;&#x662F;&#x7F13;&#x5B58;&#x6240;&#x6709;Fragment&#xFF0C;&#x4E0D;&#x4F1A;&#x53BB;&#x9500;&#x6BC1;&#x5B83;</p>
+<h4 id="5pagetransformeradapter">5.PageTransformerAdapter</h4>
+<h5 id="1marginpagetransformer">(1).MarginPageTransformer</h5>
+<p>viewpager2&#x79FB;&#x9664;&#x4E86;setPageMargin&#x65B9;&#x6CD5;&#xFF0C;&#x8BBE;&#x7F6E;&#x9875;&#x9762;&#x95F4;&#x8DDD;&#x4F7F;&#x7528;MarginPageTransformer</p>
+<h5 id="2compositepagetransformer">(2).CompositePageTransformer</h5>
+<p>&#x5185;&#x90E8;&#x7EF4;&#x62A4;&#x4E86;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x53EF;&#x4EE5;&#x5411;&#x5B83;&#x6DFB;&#x52A0;&#x591A;&#x4E2A;Transformer&#x6BD4;&#x5982;&#x52A8;&#x753B;&#x4E86;&#xFF0C;&#x95F4;&#x8DDD;&#x4E86;&#x7B49;&#x7B49;</p>
+<h4 id="6scrolleventadapter">6.ScrollEventAdapter</h4>
+<p>&#x5C06;RecyclerView&#x7684;&#x6EDA;&#x52A8;&#x4E8B;&#x4EF6;&#x8F6C;&#x6362;&#x6210;&#x4E86;Viewpager2&#x7684;&#x4E8B;&#x4EF6;</p>
+<h4 id="7fragmentstateadapter">7.FragmentStateAdapter</h4>
+<h5 id="1oncreateviewholder">(1).onCreateViewHolder()</h5>
+<p>&#x5F88;&#x7B80;&#x5355;&#x5C31;&#x662F;&#x521B;&#x5EFA;FrameLayout&#x89C6;&#x56FE;&#xFF0C;&#x5C31;&#x4E0D;&#x591A;&#x8BF4;</p>
+<h5 id="2onbindviewholder">(2).onBindViewHolder()</h5>
+<p>&#x5982;&#x679C;&#x5F53;&#x524D;ItemView&#x4E0A;&#x5DF2;&#x7ECF;&#x52A0;&#x8F7D;&#x4E86;Fragment&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x662F;&#x540C;&#x4E00;&#x4E2A;Fragment(ItemView&#x88AB;&#x590D;&#x7528;&#x4E86;)&#xFF0C;&#x90A3;&#x4E48;&#x5148;&#x79FB;&#x9664;&#x6389;ItemView&#x4E0A;&#x7684;Fragment&#x3002;ensureFragment()&#x521D;&#x59CB;&#x5316;Fragment&#x89C6;&#x56FE;  </p>
+<h5 id="3onviewattachedtowindow-viewholder&#x4E0E;fragment&#x8FDB;&#x884C;&#x7ED1;&#x5B9A;">(3).onViewAttachedToWindow (ViewHolder&#x4E0E;Fragment&#x8FDB;&#x884C;&#x7ED1;&#x5B9A;)</h5>
+<p>&#x8C03;&#x7528;&#x4E86;placeFragmentInViewHolder&#x65B9;&#x6CD5;&#x52A0;&#x8F7D;Fragment,&#x548C;gcFragments&#x7684;&#x64CD;&#x4F5C;</p>
+<h5 id="4onviewrecycled-viewholder&#x4E0E;fragment&#x89E3;&#x9664;&#x7ED1;&#x5B9A;">(4).onViewRecycled (ViewHolder&#x4E0E;Fragment&#x89E3;&#x9664;&#x7ED1;&#x5B9A;)</h5>
+<p>&#x5F53;ViewHolder&#x88AB;&#x56DE;&#x6536;&#x5230;&#x56DE;&#x6536;&#x6C60;&#x4E2D;&#xFF0C;onViewRecycled&#x65B9;&#x6CD5;&#x4F1A;&#x88AB;&#x8C03;&#x7528;,&#x8FD9;&#x91CC;&#x91CD;&#x8981;&#x7684;&#x4E00;&#x70B9;&#x662F;&#x6CA1;&#x6709;&#x5728;onViewDetachedFromWindow&#x4E2D;&#x53BB;&#x5220;&#x9664;Fragment,&#x800C;&#x662F;&#x5728;onViewRecycled&#x4E2D;&#x56DE;&#x6536;&#x3002;&#x56E0;&#x4E3A;&#x5F53;onViewRecycled&#x65B9;&#x6CD5;&#x88AB;&#x8C03;&#x7528;&#xFF0C;&#x8868;&#x793A;&#x5F53;&#x524D;ViewHolder&#x5DF2;&#x7ECF;&#x5F7B;&#x5E95;&#x6CA1;&#x6709;&#x7528;&#x4E86;&#xFF0C;&#x88AB;&#x653E;&#x5165;&#x56DE;&#x6536;&#x6C60;&#xFF0C;&#x7B49;&#x5F85;&#x540E;&#x9762;&#x88AB;&#x590D;&#x7528;&#xFF0C;&#x6B64;&#x65F6;&#x5B58;&#x5728;&#x7684;&#x60C5;&#x51B5;&#x53EF;&#x80FD;&#x6709;&#xFF1A;(1).&#x5F53;&#x524D;ItemView&#x624B;&#x52A8;&#x79FB;&#x9664;&#x6389;&#x4E86;&#xFF1B;(2).&#x5F53;&#x524D;&#x4F4D;&#x7F6E;&#x5BF9;&#x5E94;&#x7684;&#x89C6;&#x56FE;&#x5DF2;&#x7ECF;&#x5F7B;&#x5E95;&#x4E0D;&#x5728;&#x5C4F;&#x5E55;&#x4E2D;&#xFF0C;&#x88AB;&#x5F53;&#x524D;&#x5C4F;&#x5E55;&#x4E2D;&#x67D0;&#x4E9B;&#x4F4D;&#x7F6E;&#x590D;&#x7528;&#x4E86;&#x3002;&#x6240;&#x4EE5;&#x5728;onViewRecycled&#x65B9;&#x6CD5;&#x91CC;&#x9762;&#x79FB;&#x9664;Fragment&#x6BD4;&#x8F83;&#x5408;&#x9002; 2.&#x4E0D;&#x5728;onViewDetachedFromWindow&#x4E2D;&#x5220;&#x9664;&#x7684;&#x539F;&#x56E0;&#x5462;? &#x56E0;&#x4E3A;&#x6BCF;&#x5F53;&#x4E00;&#x4E2A;&#x9875;&#x9762;&#x88AB;&#x6ED1;&#x8D70;&#xFF0C;&#x90FD;&#x4F1A;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x5982;&#x679C;&#x5BF9;&#x5176;Fragment&#x8FDB;&#x884C;&#x5378;&#x8F7D;&#xFF0C;&#x6B64;&#x65F6;&#x7528;&#x6237;&#x53C8;&#x6ED1;&#x56DE;&#x6765;&#xFF0C;&#x53C8;&#x8981;&#x91CD;&#x65B0;&#x52A0;&#x8F7D;&#x4E00;&#x6B21;&#xFF0C;&#x8FD9;&#x6027;&#x80FD;&#x5C31;&#x4E0B;&#x964D;&#x4E86;&#x5F88;&#x591A;</p>
+<h5 id="5placefragmentinviewholder">(5).placeFragmentInViewHolder</h5>
+<p>viewPager2&#x7684;Lifecycle&#x8DDF;ViewPager&#x4E00;&#x6837;&#x9ED8;&#x8BA4;&#x662F;(setMaxLifecycle(fragment, STARTED) &#x61D2;&#x52A0;&#x8F7D;)</p>
+<h5 id="6onpagescrollstatechanged">(6).onPageScrollStateChanged</h5>
+<p>&#x6ED1;&#x52A8;&#x754C;&#x9762;&#x5C55;&#x793A;&#x662F;&#x6ED1;&#x52A8;&#x754C;&#x9762;&#x65F6;&#x8BBE;&#x7F6E;&#x4E3A;Resume&#x66F4;&#x65B0;&#x72B6;&#x6001;</p>
 
                                 
                                 </section>
@@ -1526,7 +1574,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Viewpager的缓存机制原理","level":"1.4.11","depth":2,"next":{"title":"viewpager+fragment嵌套","level":"1.4.12","depth":2,"path":"Android/viewpager+fragment嵌套使用.md","ref":"Android/viewpager+fragment嵌套使用.md","articles":[]},"previous":{"title":"处理UI卡顿问题","level":"1.4.10","depth":2,"path":"Android/ui卡顿问题处理.md","ref":"Android/ui卡顿问题处理.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Android/viewpager原理.md","mtime":"2022-11-05T03:43:19.382Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-11-08T07:20:43.281Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Viewpager的缓存机制原理","level":"1.4.11","depth":2,"next":{"title":"viewpager+fragment嵌套","level":"1.4.12","depth":2,"path":"Android/viewpager+fragment嵌套使用.md","ref":"Android/viewpager+fragment嵌套使用.md","articles":[]},"previous":{"title":"处理UI卡顿问题","level":"1.4.10","depth":2,"path":"Android/ui卡顿问题处理.md","ref":"Android/ui卡顿问题处理.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Android/viewpager原理.md","mtime":"2022-11-09T06:17:00.303Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-11-09T06:17:20.025Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
