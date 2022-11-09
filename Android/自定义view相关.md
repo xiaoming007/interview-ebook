@@ -9,7 +9,7 @@
 它是一个32位的int值，其中前两位是测量模式，低30位为具体的测量大小，根据父亲给的大小和测量的孩子大小，确定自己的大小
 ##### 3.测量主要针对的是系统提供的match_parent,wrap_content
 ##### 4.三种mode
-exactly,at_most,unspecifide
+exactly: 精确值模式，一般是childview设置了宽高值，或者match_parent,at_most:表示子view被限制在一个最大值内，wrap_content,unspecifide
 ##### 5.两种相对坐标
 相对与屏幕的坐标系，相对于父view的坐标系
 ##### 6.view的生命周期
