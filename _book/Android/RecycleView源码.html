@@ -1445,6 +1445,155 @@
             
         </li>
     
+        <li class="chapter " data-level="1.7.22" data-path="../algorithms/面试准备.html">
+            
+                <a href="../algorithms/面试准备.html">
+            
+                    
+                    面试准备
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" >
+            
+                <span>
+            
+                    
+                    性能优化
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../optimize/卡顿优化.html">
+            
+                <a href="../optimize/卡顿优化.html">
+            
+                    
+                    卡顿优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../optimize/内存优化.html">
+            
+                <a href="../optimize/内存优化.html">
+            
+                    
+                    内存优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../optimize/崩溃优化.html">
+            
+                <a href="../optimize/崩溃优化.html">
+            
+                    
+                    崩溃优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../optimize/启动优化.html">
+            
+                <a href="../optimize/启动优化.html">
+            
+                    
+                    启动优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="../optimize/IO存储优化.html">
+            
+                <a href="../optimize/IO存储优化.html">
+            
+                    
+                    IO存储优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="../optimize/UI渲染优化.html">
+            
+                <a href="../optimize/UI渲染优化.html">
+            
+                    
+                    UI渲染优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="../optimize/bitmap图片优化.html">
+            
+                <a href="../optimize/bitmap图片优化.html">
+            
+                    
+                    bitmap图片优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.8" data-path="../optimize/APK瘦身优化.html">
+            
+                <a href="../optimize/APK瘦身优化.html">
+            
+                    
+                    APK瘦身优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.9" data-path="../optimize/安全优化之APK加固.html">
+            
+                <a href="../optimize/安全优化之APK加固.html">
+            
+                    
+                    安全优化之APK加固
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1505,16 +1654,16 @@
 <p>&#x8FD9;&#x4E2A;&#x7684;&#x521B;&#x5EFA;&#x548C;&#x7F13;&#x5B58;&#x5B8C;&#x5168;&#x7531;&#x5F00;&#x53D1;&#x8005;&#x81EA;&#x5DF1;&#x63A7;&#x5236;&#xFF0C;&#x7CFB;&#x7EDF;&#x672A;&#x5F80;&#x8FD9;&#x91CC;&#x6DFB;&#x52A0;&#x6570;&#x636E;</p>
 <h6 id="4recycleviewpool">(4).RecycleViewPool</h6>
 <p>ViewHolder&#x7F13;&#x5B58;&#x6C60;</p>
-<h5 id="2recycleview-&#x6E90;&#x7801;&#x8DDF;&#x8E2A;&#x8DEF;&#x5F84;">2.RecycleView &#x6E90;&#x7801;&#x8DDF;&#x8E2A;&#x8DEF;&#x5F84;</h5>
+<h5 id="2recycleview-&#x6E90;&#x7801;&#x8DDF;&#x8E2A;&#x8DEF;&#x5F84;&#x5165;&#x53E3;&#x5206;&#x6790;&#xFF0C;&#x56E0;&#x4E3A;&#x53EA;&#x6709;&#x5728;&#x5217;&#x8868;&#x6ED1;&#x52A8;&#x7684;&#x65F6;&#x5019;&#x624D;&#x4F1A;&#x51FA;&#x73B0;&#x7F13;&#x5B58;&#x590D;&#x7528;&#x95EE;&#x9898;&#xFF0C;&#x6240;&#x4EE5;&#x5165;&#x53E3;&#x5728;ontouchevent&#x4E2D;&#x7684;move&#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x90A3;&#x91CC;">2.RecycleView &#x6E90;&#x7801;&#x8DDF;&#x8E2A;&#x8DEF;&#x5F84;(&#x5165;&#x53E3;&#x5206;&#x6790;&#xFF0C;&#x56E0;&#x4E3A;&#x53EA;&#x6709;&#x5728;&#x5217;&#x8868;&#x6ED1;&#x52A8;&#x7684;&#x65F6;&#x5019;&#x624D;&#x4F1A;&#x51FA;&#x73B0;&#x7F13;&#x5B58;&#x590D;&#x7528;&#x95EE;&#x9898;&#xFF0C;&#x6240;&#x4EE5;&#x5165;&#x53E3;&#x5728;onTouchEvent()&#x4E2D;&#x7684;Move&#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x90A3;&#x91CC;)</h5>
 <h6 id="1ontouchevent---scrollbyinternal---scrollstep">(1).onTouchEvent -&gt; scrollByInternal -&gt; scrollStep</h6>
 <h6 id="2mlayoutscrollverticallyby---scrollby---fill---layoutchunk">(2).mLayout.scrollVerticallyBy -&gt; scrollBy -&gt; fill -&gt; layoutChunk</h6>
 <h6 id="3layoutstatenext---recyclergetviewforposition">(3).layoutState.next -&gt; recycler.getViewForPosition</h6>
-<h6 id="4trygetviewholderforpositionbydeadline">(4).tryGetViewHolderForPositionByDeadline</h6>
-<h6 id="1getchangedscrapviewforposition"># 1).getChangedScrapViewForPosition</h6>
-<h6 id="2getscraporhiddenorcachedholderforposition"># 2).getScrapOrHiddenOrCachedHolderForPosition</h6>
+<h6 id="4trygetviewholderforpositionbydeadline-&#x7F13;&#x5B58;&#x590D;&#x7528;&#x7684;&#x5173;&#x952E;&#x4EE3;&#x7801;&#xFF08;&#x5728;recycler&#x7C7B;&#x91CC;&#xFF09;">(4).tryGetViewHolderForPositionByDeadline &#x7F13;&#x5B58;&#x590D;&#x7528;&#x7684;&#x5173;&#x952E;&#x4EE3;&#x7801;&#xFF08;&#x5728;Recycler&#x7C7B;&#x91CC;&#xFF09;</h6>
+<h6 id="1getchangedscrapviewforposition&#xFF08;&#x4ECE;mchangescrap&#x4E2D;&#x62FF;&#x5230;viewhold&#xFF09;"># 1).getChangedScrapViewForPosition&#xFF08;&#x4ECE;mChangeScrap&#x4E2D;&#x62FF;&#x5230;viewhold&#xFF09;</h6>
+<h6 id="2getscraporhiddenorcachedholderforposition&#xFF08;&#x5982;&#x679C;&#x7B2C;&#x4E00;&#x6B65;&#x672A;&#x62FF;&#x5230;&#xFF0C;&#x4ECE;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4E2D;&#x53D6;&#xFF09;"># 2).getScrapOrHiddenOrCachedHolderForPosition&#xFF08;&#x5982;&#x679C;&#x7B2C;&#x4E00;&#x6B65;&#x672A;&#x62FF;&#x5230;&#xFF0C;&#x4ECE;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4E2D;&#x53D6;&#xFF09;</h6>
 <h6 id="3getscraporcachedviewforid"># 3).getScrapOrCachedViewForId</h6>
-<h6 id="4mviewcacheextensiongetviewforpositionandtype----&#x81EA;&#x5B9A;&#x4E49;"># 4).mViewCacheExtension.getViewForPositionAndType -- &#x81EA;&#x5B9A;&#x4E49;</h6>
-<h6 id="5getrecycledviewpoolgetrecycledviewtype----&#x7F13;&#x5B58;&#x6C60;"># 5).getRecycledViewPool().getRecycledView(type) -- &#x7F13;&#x5B58;&#x6C60;</h6>
+<h6 id="4mviewcacheextensiongetviewforpositionandtype----&#xFF08;&#x81EA;&#x5B9A;&#x4E49;&#x7F13;&#x5B58;&#xFF0C;&#x81EA;&#x5DF1;&#x4F7F;&#x7528;&#xFF09;"># 4).mViewCacheExtension.getViewForPositionAndType -- &#xFF08;&#x81EA;&#x5B9A;&#x4E49;&#x7F13;&#x5B58;&#xFF0C;&#x81EA;&#x5DF1;&#x4F7F;&#x7528;&#xFF09;</h6>
+<h6 id="5getrecycledviewpoolgetrecycledviewtype----&#x7F13;&#x5B58;&#x6C60;&#xFF0C;&#x5982;&#x679C;&#x7F13;&#x5B58;&#x6C60;&#x4E2D;&#x4E5F;&#x6CA1;&#x6709;&#x5C31;&#x6267;&#x884C;&#x4E0B;&#x4E00;&#x6B65;&#x521B;&#x5EFA;"># 5).getRecycledViewPool().getRecycledView(type) -- &#x7F13;&#x5B58;&#x6C60;&#xFF0C;&#x5982;&#x679C;&#x7F13;&#x5B58;&#x6C60;&#x4E2D;&#x4E5F;&#x6CA1;&#x6709;&#x5C31;&#x6267;&#x884C;&#x4E0B;&#x4E00;&#x6B65;&#x521B;&#x5EFA;</h6>
 <h6 id="6madaptercreateviewholder----&#x521B;&#x5EFA;"># 6).mAdapter.createViewHolder -- &#x521B;&#x5EFA;</h6>
 <h6 id="7trybindviewholderbydeadline----&#x7ED1;&#x5B9A;&#x6570;&#x636E;"># 7).tryBindViewHolderByDeadline -- &#x7ED1;&#x5B9A;&#x6570;&#x636E;</h6>
 <h5 id="3recycleviewrecycler">3.RecycleView.Recycler</h5>
@@ -1523,9 +1672,21 @@
 <pre><code class="lang-java">LinearLayoutManager.onLayoutChildren 
 -&gt; detachAndScrapAttachedViews 
 -&gt; scrapOrRecycleView 
--&gt; recycler.recycleViewHolderInternal(viewholder) 
--&gt; recycler.scrapView(view)
+-&gt; recycler.recycleViewHolderInternal(viewholder) &#x7F13;&#x5B58;&#x5230; mCachedViews(&#x5927;&#x5C0F;<span class="hljs-number">2</span>)&#xFF0C;RecycledViewPool(&#x5927;&#x5C0F;<span class="hljs-number">5</span>) ==&gt; <span class="hljs-number">7</span> 
+-&gt; recycler.scrapView(view)&#x4E00;&#x7EA7;&#x7F13;&#x5B58;&#xFF0C;&#x7F13;&#x5B58;mChangeScrap&#x4E0E;mAttachedScrap
 </code></pre>
+<h5 id="5recyclerviewpool">5.RecyclerViewPool</h5>
+<p>&#x7ED3;&#x6784;&#x662F;&#x4E00;&#x4E2A;&#x7C7B;&#x4F3C;HashMap&#x7684;&#x7ED3;&#x6784;&#xFF0C;key&#x662F;view_type&#x540E;&#x9762;&#x8DDF;&#x7684;&#x4E00;&#x4E2A;&#x94FE;&#x8868;&#xFF0C;&#x4F7F;&#x7528;SparseArray,&#x5982;&#x679C;&#x94FE;&#x4E2D;&#x6570;&#x636E;&#x6EE1;&#x4E86;&#x76F4;&#x63A5;reture&#x6389;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x90A3;&#x4E48;&#x591A;&#x7684;ViewHold.</p>
+<h4 id="recyclerview-&#x76F8;&#x5173;&#x9762;&#x8BD5;&#x95EE;&#x9898;">RecyclerView &#x76F8;&#x5173;&#x9762;&#x8BD5;&#x95EE;&#x9898;</h4>
+<h5 id="1recyclerview&#x7684;&#x590D;&#x7528;&#x673A;&#x5236;&#xFF0C;&#x7B80;&#x5355;&#x8BF4;&#x8BF4;view&#x56DE;&#x6536;&#x4E0E;&#x590D;&#x7528;&#x7684;&#x8FC7;&#x7A0B;">1.RecyclerView&#x7684;&#x590D;&#x7528;&#x673A;&#x5236;&#xFF0C;&#x7B80;&#x5355;&#x8BF4;&#x8BF4;View&#x56DE;&#x6536;&#x4E0E;&#x590D;&#x7528;&#x7684;&#x8FC7;&#x7A0B;</h5>
+<h5 id="2recyclerview&#x652F;&#x6301;&#x591A;&#x4E2A;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x5E03;&#x5C40;&#xFF0C;&#x4ED6;&#x4EEC;&#x600E;&#x4E48;&#x7F13;&#x5B58;&#xFF0C;&#x5E76;&#x4E14;&#x67E5;&#x627E;&#x7684;&#x5462;">2.RecyclerView&#x652F;&#x6301;&#x591A;&#x4E2A;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x5E03;&#x5C40;&#xFF0C;&#x4ED6;&#x4EEC;&#x600E;&#x4E48;&#x7F13;&#x5B58;&#xFF0C;&#x5E76;&#x4E14;&#x67E5;&#x627E;&#x7684;&#x5462;</h5>
+<h5 id="3&#x8BF4;&#x8BF4;recyclerview&#x9002;&#x914D;&#x5668;&#x7684;&#x539F;&#x7406;">3.&#x8BF4;&#x8BF4;RecyclerView&#x9002;&#x914D;&#x5668;&#x7684;&#x539F;&#x7406;</h5>
+<h5 id="4&#x7406;&#x6E05;recyclerview&#x67B6;&#x6784;&#x601D;&#x60F3;&#xFF0C;&#x624B;&#x5199;recyclerview&#x81EA;&#x5B9A;&#x4E49;&#x63A7;&#x4EF6;">4.&#x7406;&#x6E05;RecyclerView&#x67B6;&#x6784;&#x601D;&#x60F3;&#xFF0C;&#x624B;&#x5199;RecyclerView&#x81EA;&#x5B9A;&#x4E49;&#x63A7;&#x4EF6;</h5>
+<h5 id="5recyclerview&#x4E2D;&#x6BCF;&#x4E00;&#x4E2A;view&#x7684;tag&#x662F;&#x7A7A;&#x7684;&#x5417;">5.RecyclerView&#x4E2D;&#x6BCF;&#x4E00;&#x4E2A;View&#x7684;tag&#x662F;&#x7A7A;&#x7684;&#x5417;</h5>
+<p>&#x4E0D;&#x7A7A;&#xFF0C;&#x7CFB;&#x7EDF;&#x4F1A;&#x4E3A;&#x5176;&#x8BBE;&#x7F6E;tag</p>
+<h5 id="6recyclerview&#x4E00;&#x5C4F;&#x52A0;&#x8F7D;&#x7684;&#x4E2A;&#x6570;&#x662F;&#x600E;&#x4E48;&#x786E;&#x5B9A;&#x7684;&#xFF0C;&#x4ED6;&#x662F;&#x600E;&#x4E48;&#x505A;&#x5230;&#x4E0D;&#x663E;&#x793A;&#x7684;item&#x7F13;&#x5B58;&#x5230;&#x5185;&#x5B58;&#x4E2D;">6.RecyclerView&#x4E00;&#x5C4F;&#x52A0;&#x8F7D;&#x7684;&#x4E2A;&#x6570;&#x662F;&#x600E;&#x4E48;&#x786E;&#x5B9A;&#x7684;&#xFF0C;&#x4ED6;&#x662F;&#x600E;&#x4E48;&#x505A;&#x5230;&#x4E0D;&#x663E;&#x793A;&#x7684;item&#x7F13;&#x5B58;&#x5230;&#x5185;&#x5B58;&#x4E2D;</h5>
+<p>&#x6BCF;&#x4E00;&#x4E2A;item&#x90FD;&#x6709;&#x4E00;&#x4E2A;top,&#x548C;bottom&#xFF0C;bottom&#x4E0D;&#x65AD;&#x7684;&#x589E;&#x52A0;&#xFF0C;&#x5F53;&#x5176;&#x503C;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;&#x53EF;&#x7528;&#x9AD8;&#x5EA6;&#x65F6;&#x5C31;&#x4E0D;&#x5728;&#x6DFB;&#x52A0;item&#x4E86;</p>
+<h5 id="7&#x6709;&#x770B;&#x8FC7;recyclerview&#x7684;&#x8FB9;&#x754C;&#x5224;&#x65AD;&#x7684;&#x6E90;&#x7801;&#x5417;&#xFF1F;&#x7B80;&#x77ED;&#x804A;&#x4E0B;&#x4ED6;&#x7684;&#x5224;&#x65AD;&#x673A;&#x5236;&#xFF0C;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x8BE5;&#x56DE;&#x6536;">7.&#x6709;&#x770B;&#x8FC7;RecyclerView&#x7684;&#x8FB9;&#x754C;&#x5224;&#x65AD;&#x7684;&#x6E90;&#x7801;&#x5417;&#xFF1F;&#x7B80;&#x77ED;&#x804A;&#x4E0B;&#x4ED6;&#x7684;&#x5224;&#x65AD;&#x673A;&#x5236;&#xFF0C;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x8BE5;&#x56DE;&#x6536;</h5>
 
                                 
                                 </section>
@@ -1569,7 +1730,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"RecycleView源码分析","level":"1.4.13","depth":2,"next":{"title":"减少OOM的发生","level":"1.4.14","depth":2,"path":"Android/OOM的发生与减少发生方法.md","ref":"Android/OOM的发生与减少发生方法.md","articles":[]},"previous":{"title":"viewpager+fragment嵌套","level":"1.4.12","depth":2,"path":"Android/viewpager+fragment嵌套使用.md","ref":"Android/viewpager+fragment嵌套使用.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Android/RecycleView源码.md","mtime":"2022-11-05T13:14:44.674Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-11-09T06:17:20.025Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"RecycleView源码分析","level":"1.4.13","depth":2,"next":{"title":"减少OOM的发生","level":"1.4.14","depth":2,"path":"Android/OOM的发生与减少发生方法.md","ref":"Android/OOM的发生与减少发生方法.md","articles":[]},"previous":{"title":"viewpager+fragment嵌套","level":"1.4.12","depth":2,"path":"Android/viewpager+fragment嵌套使用.md","ref":"Android/viewpager+fragment嵌套使用.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Android/RecycleView源码.md","mtime":"2022-11-10T05:06:28.641Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-11-17T08:59:53.037Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

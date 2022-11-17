@@ -101,4 +101,15 @@
     * [回溯算法](algorithms/回溯算法.md)
     * [动态规划](algorithms/动态规划.md)
     * [字符串匹配算法](algorithms/字符串匹配算法.md)
+    * [面试准备](algorithms/面试准备.md)
+* 性能优化
+    * [卡顿优化](optimize/卡顿优化.md)
+    * [内存优化](optimize/内存优化.md)
+    * [崩溃优化](optimize/崩溃优化.md)
+    * [启动优化](optimize/启动优化.md)
+    * [IO存储优化](optimize/IO存储优化.md)
+    * [UI渲染优化](optimize/UI渲染优化.md)
+    * [bitmap图片优化](optimize/bitmap图片优化.md)
+    * [APK瘦身优化](optimize/APK瘦身优化.md)
+    * [安全优化之APK加固](optimize/安全优化之APK加固.md)
 
