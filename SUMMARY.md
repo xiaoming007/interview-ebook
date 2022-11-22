@@ -3,6 +3,8 @@
 * [Introduction](README.md)
 * 项目中的问题
     * 社区项目
+        * [MVVM](community/MVVM项目架构.md)
+        * [组件化](community/组件化+模块化.md)
         * [屏幕适配方案](community/屏幕适配方案.md)
         * [滑动冲突问题](community/解决嵌套coordinateLayout与banner滑动冲突.md)
         * [Arouter没有回调](community/处理arouter没有回调问题.md)
@@ -12,6 +14,8 @@
         * [自定义view](community/邀请函.md)
         * [项目使用协程网络封装](community/网络封装.md)
         * [项目构建速度问题](community/加速构建速度.md)
+    * 海外项目
+        * [MVP](BothBet/项目架构MVP.md)
 * java基础
     * [ArrayList与LinkedList](java/ArrayList与LinkedList.md)
     * [java多线程](java/多线程概念知识.md)
@@ -66,8 +70,6 @@
     * [Intent能够传递最大数据内存是多少](Android/Intent能够传递最大数据内存是多少.md)
     * [Arouter源码](Android/Arouter源码.md)
     * [android基础知识](Android/Android基础.md)
-    * [MVVM,MVP](Android/MVVM,MVP架构.md)
-    * [组件化](Android/组件化.md)
     * [一个新项目怎么搭建](Android/一个新项目怎么搭建.md)
     * [Android系统升级适配相关](Android/Android系统升级适配相关.md)
     * [Https](Android/Https.md)
