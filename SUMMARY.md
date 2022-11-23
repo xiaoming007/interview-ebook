@@ -5,6 +5,7 @@
     * 社区项目
         * [MVVM](community/MVVM项目架构.md)
         * [组件化](community/组件化+模块化.md)
+        * [三方工具使用](community/三方工具使用.md)
         * [屏幕适配方案](community/屏幕适配方案.md)
         * [滑动冲突问题](community/解决嵌套coordinateLayout与banner滑动冲突.md)
         * [Arouter没有回调](community/处理arouter没有回调问题.md)
@@ -14,8 +15,9 @@
         * [自定义view](community/邀请函.md)
         * [项目使用协程网络封装](community/网络封装.md)
         * [项目构建速度问题](community/加速构建速度.md)
-    * 海外项目
+    * BothBet项目
         * [MVP](BothBet/项目架构MVP.md)
+        * [三方工具使用](BothBet/三方工具使用.md)
 * java基础
     * [ArrayList与LinkedList](java/ArrayList与LinkedList.md)
     * [java多线程](java/多线程概念知识.md)
@@ -77,6 +79,7 @@
     * [代理模式](designPatterns/静态与动态代理.md)
 * Kotlin
     * 协程
+        * [面试点](kotlin/面试点.md)
         * [协程基础](kotlin/基础知识.md)
         * [异步流](kotlin/异步流.md)
         * [通道](kotlin/通道基础.md)
