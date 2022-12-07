@@ -1,6 +1,9 @@
 # Android类加载机制原理
-##### 1.Classload 的双亲委托机制
+### 1.Classload 的双亲委托机制
 某个类加载器在加载类时，首先将加载任务委托给父类加载器，一次递归，如果父类加载器可以完成类加载任务，就成功返回，只有父类加载器无法完成此加载任务或者没有父类加载器时，才自己去加载。
-##### 2.双亲委托机制的好处
-###### (1).避免重复加载，当父加载器已经加载了该类的时候，就没有必要子ClassLoader再加载一次
-###### (2).安全性考虑，防止核心API库被随意篡改
+### 2.双亲委托机制的好处
+* (1).避免重复加载，当父加载器已经加载了该类的时候，就没有必要子ClassLoader再加载一次
+* (2).安全性考虑，防止核心API库被随意篡改
+### 3.android类加载器
+在Android开发中，不管是插件化还是组件化，都是基于Android系统的类加载器ClassLoader来设计的。只不过Android平台上虚拟机运行的是Dex字节码，一种对class文件优化的产物，传统Class文件是一个Java源码文件会生成一个.class文件，而Android是把所有Class文件进行合并、优化，然后再生成一个最终的class.dex，目的是把不同class文件重复的东西只需保留一份，在早期的Android应用开发中，如果不对Android应用进行分dex处理，那么最后一个应用的apk只会有一个dex文件。  
+Android中常用的类加载器有两种，DexClassLoader和PathClassLoader，它们都继承于BaseDexClassLoader。区别在于调用父类构造器时，DexClassLoader多传了一个optimizedDirectory参数，这个目录必须是内部存储路径，用来缓存系统创建的Dex文件。而PathClassLoader该参数为null，只能加载内部存储目录的Dex文件。所以我们可以用DexClassLoader去加载外部的apk文件，这也是很多插件化技术的基础
