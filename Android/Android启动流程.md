@@ -24,3 +24,14 @@ Launcher组件是由之前启动的systemServer所启动的
 * （4）ams如果发现用来运行运行activity的进程不存在，它就会给zygote进程发送一个进程间通信请求，zaygote会调用fork（）方法创建一个新的应用程序进程。zaygote进程在启动的时候在内部创建一个虚拟机实例，它通过复制它本身得到一个应用程序进程
 * （5）新的应用程序进程启动完成之后，就会向ams发送一个启动完成的通信请求
 * （6）进程创建好之后，经过一系列调用就会调用startactivity方法，最后 activity调用oncreate方法构建出页面至此我们的应用正式启动完成
+### 四.应用的启动流程源码分析
+* Lanucher可以理解成一个管理应用图标在界面展示的应用。
+* Launcher.java 继承Activity并且实现了View.OnClickListener事件，以响应用户点击桌面上的图标事件。
+* Lanucher类通过重写Onclick（）方法，在点击的时候，会调用startActivitySafely()方法。
+* startActivitySafely() 调用 startActivity()
+* startActivity) 会中的逻辑是，如果已经启动过执行热启动即startMainActivity(),如果是冷启动调用startActivity()方法
+* 冷启动是通过mInstrumentation仪表这个对象，执行mInstrumentation.execStartActivity()方法来启动（设计Instrumentation类的目的是为了方便自动化测试，它是在AMS与Activity的中间件）
+* 热启动利用Binder通信进行启动
+* 下一步通过zygote进程调用fork(),fork出一个新的进程，并调用ActivityThread的main()
+* thread.attach() -> mgr.attachApplication(),通过binder机制。调用handleBindApplication(),在这个方法中通过data.info.makeApplication(),会创建一个新的application这里的application在做插件化，等会用的到。mInstrumentation.callApplicationOnCreate()会对application进行管理。
+* application初始化后，通过ActivityThread中的performLaunchActivity()方法mInstrumentation.newActivity()创建activity ,activity.attach(),将一些需要的资源添加到activity上，然后通过mInstrumentation.callActivityOnCreate(),就会调用到我们自己Activity的oncreate()方法了
